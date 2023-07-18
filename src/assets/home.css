@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.search_menu-button_warp svg {
+    font-size: 1rem;
+    color: white;
+    padding: 0 10px 0 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    padding: 0 !important;
+}
+
+#web {
+    position: relative;
+}
+
+.header-container {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-container_component {
+    display: flex;
+}
+
+.header-container_logo img {
+    width: 100px;
+    margin: 15px;
+}
+
+.header-container_component a {
+    transition: linear 0.1s;
+    font-weight: 600;
+    text-decoration: none !important;
+    margin: 10px 50px 10px 50px;
+    font-size: 16px;
+    color: white;
+}
+
+.header-container_component a :hover {
+    color: #f8a150;
+}
+
+.header-container_btnOption {
+    display: flex;
+    margin: 10px 30px 10px 30px;
+}
+.header-container a:hover{
+    color: #f8a150;
+}
+
+.btn_sigin {
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.btn_sigin input {
+    font-weight: 600;
+    transition: linear 0.2s;
+    width: 110px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    background-color: transparent;
+}
+
+.btn_sigin input:hover {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+.btn_sigup {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn_sigup input {
+    font-weight: 600;
+    transition: linear 0.2s;
+    background-color: #F9A150;
+    width: 110px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.btn_sigup input:hover {
+    color: white;
+    background-color: transparent;
+    border: 1px solid #F9A150;
+    color: white;
+    background-size: cover
+}
