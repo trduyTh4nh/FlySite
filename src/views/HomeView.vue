@@ -33,10 +33,10 @@
                 </div>
                 <div class="go-info">
                   <div class="go-info--tittle">
-                    <h4>Depature city</h4>
+                    <h4>Thành phố khởi hành</h4>
                   </div>
                   <div class="go-info--city">
-                    <p>Tp.HCM VietNam</p>
+                    <p>Thành phố Hồ Chí Minh - Viêt</p>
                   </div>
                 </div>
               </div>

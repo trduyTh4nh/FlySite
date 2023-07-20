@@ -72,21 +72,22 @@
     }
 
     .box-search_menu--wrap {
-      justify-content: center;
-      position: relative;
-      align-items: center;
       display: flex;
     }
 
     .box-search {
-      padding-left: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       border-radius: 10px;
       margin-top: 5%;
       width: 85%;
-      height: 200px;
-      background-color: #f5f5f5;
+      height: fit-content;
+      background-color: #f5f5f5bd;
       opacity: 1;
-      box-shadow: 0px 10px 10px 1px;
+      box-shadow: 0px 10px 10px 1px rgba(0, 0, 0, 0.141);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
 
     .box-search h4 {
@@ -95,19 +96,19 @@
     }
 
     .box-search h3 {
-      margin-bottom: 30px;
+    
       font-weight: 700;
     }
 
     .box-search_menu {
-      width: 105%;
-      justify-content: space-between;
-      position: relative;
+      width: 100%;
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
     .search_menu-go {
+      background-color: white;
       border-bottom-left-radius: 15px;
       border-top-left-radius: 15px;
       /*box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;*/
@@ -118,9 +119,12 @@
       border-right: 1px solid #ccc;
       align-items: center;
       justify-content: space-around;
-      width: 270px;
-      height: 80px;
+      width: fit-content;
+      padding: 15px;
+      height: fit-content;
       display: flex;
+      gap: 15px;
+      padding-right: 35px;
     }
 
     .search_menu-go:hover {
@@ -129,17 +133,15 @@
       border: 2px solid white;
     }
 
-    .go-info {
-      margin-left: -17px;
-    }
+   
 
     .go-icon {
+      padding: 18px 16px;
       border-radius: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
+      
       background-color: #F9A150;
     }
 
@@ -149,17 +151,23 @@
       color: white;
     }
 
-    .search_menu-btnreverse {
-      padding: 20px 10px;
+    .search_menu-btnreverse{
+      width: 0;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .search_menu-btnreverse button {
+      padding: 20px;
       transition: linear 0.2s;
       display: flex;
-      margin-left: -20px;
       justify-content: center;
-      position: absolute;
-
+      align-items: center;
+      position: relative;
     }
 
-    .search_menu-btnreverse:hover {
+    .search_menu-btnreverse button:hover {
       cursor: pointer;
       transform: rotate(3.142rad);
     }
@@ -168,6 +176,7 @@
       width: 45px;
       height: 45px;
       border-radius: 100%;
+      background-color: white;
       border: 2px solid #bfbfbf;
     }
 
@@ -175,6 +184,7 @@
 
 
     .search_menu-to {
+      background-color: white;
       margin-right: 20px;
       border-bottom-right-radius: 15px;
       border-top-right-radius: 15px;
@@ -185,9 +195,12 @@
       border-left: 1px solid #ccc;
       border-right: 2px solid #ccc;
       /* box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;*/
-      width: 270px;
-      height: 80px;
+      width: fit-content;
+      height: fit-content;
       display: flex;
+      padding: 15px;
+      padding-left: 35px;
+      gap: 15px;
       transition: linear 0.2s;
     }
 
@@ -197,18 +210,12 @@
       border: 2px solid white;
     }
 
-    .to-info {
-      margin-left: -10px;
-    }
-
     .to-icon {
-      margin-left: 5px;
       border-radius: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
+      padding: 18px 16px;
       background-color: #F9A150;
     }
 
@@ -222,6 +229,7 @@
 
 
     .search_menu-calender {
+      background-color: white;
       border-top: 2px solid #ccc;
       border-bottom: 2px solid #ccc;
       border-left: 2px solid #ccc;
@@ -262,6 +270,7 @@
 
 
     .search_menu-passenger {
+      background-color: white;
       border-top: 2px solid #ccc;
       border-bottom: 2px solid #ccc;
       border-left: 2px solid #ccc;
@@ -302,6 +311,7 @@
 
 
     .search_menu-ticket {
+      background-color: white;
       border-top: 2px solid #ccc;
       border-bottom: 2px solid #ccc;
       border-left: 2px solid #ccc;
@@ -341,8 +351,8 @@
     }
 
     .search_menu-button {
-      width: 200px;
-      height: 80px;
+      width: fit-content;
+      height: fit-content;
     }
 
     .search_menu-button {}

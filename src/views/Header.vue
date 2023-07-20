@@ -14,26 +14,26 @@
 
                 <div class="header-container_component">
                     <div class="header-container_component--flight">
-                        <a href="#">All flight</a>
+                        <a href="#">Tất cả vé</a>
                     </div>
                     <div class="header-container_component--schedule">
-                        <a href="#">Shedule</a>
+                        <a href="#">Lịch chuyến bay</a>
                     </div>
                     <div class="header-container_component--passenger">
-                        <a href="#">Passengers</a>
+                        <a href="#">Hành khách</a>
                     </div>
                     <div class="header-container_component--order">
-                        <a href="#">Your orders</a>
+                        <a href="#">Vé đã đặt</a>
                     </div>
                 </div>
 
                 <div class="header-container_btnOption">
-                    <div class="btn_sigin">
-                        <input type="submit" value="Signin" />
-                    </div>
-                    <div class="btn_sigup">
-                        <input type="submit" value="Signup" />
-                    </div>
+                    <button class="btn_sigin">
+                        <p>Đăng nhập</p>
+                    </button>
+                    <button class="btn_sigup">
+                        <p>Đăng ký</p>
+                    </button>
 
                 </div>
 
