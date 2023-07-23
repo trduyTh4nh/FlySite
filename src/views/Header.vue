@@ -1,4 +1,17 @@
 <script>
+import { RouterLink} from 'vue-router'
+export default{
+    components:{
+        RouterLink
+    },
+    methods:{
+        open(){
+            var login = document.querySelector('.login_cover');
+            login.classList.add('.open_login')
+        }
+    }
+}
+
 
 </script>
 <template>
@@ -13,22 +26,22 @@
                 </div>
 
                 <div class="header-container_component">
-                    <div class="header-container_component--flight">
-                        <a href="#">Tất cả vé</a>
+                    <div class="header-container_component--schedule">
+                        <RouterLink  to='/'>Trang chủ</RouterLink>
                     </div>
                     <div class="header-container_component--schedule">
-                        <a href="#">Lịch chuyến bay</a>
+                        <RouterLink to='/schedule'>Lịch chuyến bay</RouterLink>
                     </div>
                     <div class="header-container_component--passenger">
-                        <a href="#">Hành khách</a>
+                        <RouterLink to='/passenger'>Hành khách</RouterLink>
                     </div>
                     <div class="header-container_component--order">
-                        <a href="#">Vé đã đặt</a>
+                        <RouterLink to='/history'>Lịch sử đặt vé</RouterLink>
                     </div>
                 </div>
 
                 <div class="header-container_btnOption">
-                    <button class="btn_sigin">
+                    <button @click="open" class="btn_sigin">
                         <p>Đăng nhập</p>
                     </button>
                     <button class="btn_sigup">

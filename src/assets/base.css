@@ -412,4 +412,8 @@
       position: absolute;
       z-index: 1 !important;
       width: 100%;
-  }
+    }
+
+    .search_menu-btnreverse:hover {
+      cursor: pointer;
+    }

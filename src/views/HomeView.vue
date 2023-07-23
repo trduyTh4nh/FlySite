@@ -1,4 +1,19 @@
 <script>
+import LoginComponent from '../components/LoginComponent.vue'
+import SignupComponent from '../components/SignUpComponent.vue'
+
+export default{
+  components:
+  {
+    LoginComponent,
+    signup: SignupComponent
+  } 
+  
+
+}
+
+
+
 </script>
 
 <template>
@@ -8,7 +23,6 @@
     <div class="body-img">
       <img class="img_main" src="https://i.pinimg.com/originals/20/d9/c9/20d9c9ccfee8b5892a145199e458fc79.gif" />
     </div>
-
     <div class="box">
       <div class="box-text">
         <div class="box-text-wrap">
@@ -116,7 +130,28 @@
       </div>
     </div>
   </div>
+  
+  <div class="login_cover" >
+    <LoginComponent></LoginComponent>
+    <signup></signup>
+  </div>
+
 </template>
 <style>
   @import url('../assets/home.css');
+
+  .open_login{
+      display: flex;
+  }
+  .login_cover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -60rem;
+    background-color: #00000091;
+    width: 100%;
+    height: 1020px;
+    position: relative;
+    opacity: 1;
+  }
 </style>
