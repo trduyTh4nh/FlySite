@@ -1,42 +1,76 @@
 <script>
-
+import { checkvar } from '../helper';
+export default {
+    methods: {
+        closeLogin() {
+            this.$emit("login-callback-close", false)
+        },
+        login() {
+            var val = {
+                email: this.$refs.email.value,
+                pass: this.$refs.pass.value
+            }
+            checkvar(val.email, val.pass).then(
+                e => {
+                    if(e){
+                        this.hideButton();
+                        this.closeLogin();
+                    }
+                }
+            ).catch(e => {
+                console.log("Lỗi")
+            })
+        },
+        hideButton() {
+            this.$emit("hide-button", false)
+        }
+    }
+}
 </script>
 <template>
-    <div id="login">
-        <div class="login-wrap">
-            <div class="login-tittle">
-                <h1>Sign in</h1>
-            </div>
-            <div class="login-description">
-                <span>Hey, enter your details to get sigin to</span>
-            </div>
-            <div class="login-logo">
-                <img src="../assets/logo_main.svg">
-            </div>
-            <div class="login-email">
-                <input type="text" placeholder="Enter your email">
-            </div>
-            <div class="login-pass">
-                <div class="input-icons">
-                    <input type="text" placeholder="Passcode">
-                    <font-awesome-icon :icon="['fas', 'eye']" />
+    <div class="login_cover">
+        <div id="login">
+            <div class="login-wrap">
+                <div @click="closeLogin()" class="signup-close">
+                    <div class="signup-close-icon">
+                        <font-awesome-icon :icon="['fas', 'xmark']" />
+                    </div>
                 </div>
-            </div>
-
-            <div class="login-question">
-                <span>Having trouble in sigin?</span>
-            </div>
-
-            <div class="login-button">
-                <button>Sign in</button>
-            </div>
-
-            <div class="login-bottom">
-                <div class="login-bottom_tittle">
-                    <span>Don't have an account?</span>
+                <div class="login-tittle">
+                    <h1>Sign in</h1>
                 </div>
-                <div class="login-bottom_reques">
-                    <span>Request Now</span>
+
+                <div class="login-description">
+                    <span>Hey, enter your details to get sigin to</span>
+                </div>
+                <div class="login-logo">
+                    <img src="../assets/logo_main.svg">
+                </div>
+                <div class="login-email">
+                    <input ref="email" type="email" placeholder="Enter your email">
+                </div>
+                <div class="login-pass">
+                    <div class="input-icons">
+                        <input ref="pass" type="password" placeholder="Passcode">
+                        <font-awesome-icon :icon="['fas', 'eye']" />
+                    </div>
+                </div>
+
+                <div class="login-question">
+                    <span>Having trouble in sigin?</span>
+                </div>
+
+                <div class="login-button">
+                    <button @click="login()">Sign in</button>
+                </div>
+
+                <div class="login-bottom">
+                    <div class="login-bottom_tittle">
+                        <span>Don't have an account?</span>
+                    </div>
+                    <div class="login-bottom_reques">
+                        <span>Request Now</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,11 +86,24 @@
 }
 
 #login {
-    display: none;
+    display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 5rem;
     position: absolute;
+}
+
+.login_cover {
+    z-index: 1;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000091;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
 }
 
 .login-wrap {
@@ -87,26 +134,28 @@
     padding: 10px;
     text-align: center;
 }
-.login-tittle{
-    margin-top: 2rem;
-    margin-bottom: 1rem;    
-}
-.login-description{
+
+.login-tittle {}
+
+.login-description {
     margin: 1rem;
 }
-.login-description span{
+
+.login-description span {
     font-weight: 600;
     color: #686868;
 }
-.login-logo img{
+
+.login-logo img {
     width: 4rem;
     height: 5rem;
 }
-.login-email{
+
+.login-email {
     margin: 2rem;
 }
 
-.login-email input{
+.login-email input {
     background-color: #f7f7f7;
     transition: ease 0.1s;
     border-radius: 4px;
@@ -118,36 +167,43 @@
     color: black;
     font-weight: 500;
 }
-.login-email input:focus{
-    outline:  2px solid #f8a150;
-}
-.login-pass{
-    margin: 2rem;
-}
-.login-pass input{
-    background-color: #f7f7f7;
-    transition: ease 0.1s;
-    border-radius: 4px;
-    border: none;
-    padding: 1rem;
-    width: 22rem;
-    height: 1rem;
-    outline: none;
-    color: black;
-    font-weight: 500;
-}
-.login-pass input:focus{
+
+.login-email input:focus {
     outline: 2px solid #f8a150;
 }
-.input-icons svg{
+
+.login-pass {
+    margin: 2rem;
+}
+
+.login-pass input {
+    background-color: #f7f7f7;
+    transition: ease 0.1s;
+    border-radius: 4px;
+    border: none;
+    padding: 1rem;
+    width: 22rem;
+    height: 1rem;
+    outline: none;
+    color: black;
+    font-weight: 500;
+}
+
+.login-pass input:focus {
+    outline: 2px solid #f8a150;
+}
+
+.input-icons svg {
     margin-top: 1rem;
     position: absolute;
     margin-left: -2rem;
 }
-.login-cover{
-        background-color: #00000091;
+
+.login-cover {
+    background-color: #00000091;
 }
-.login-question{
+
+.login-question {
     display: flex;
     justify-content: left;
     padding-left: 4rem;
@@ -156,7 +212,8 @@
     color: #000;
     margin-bottom: 2rem;
 }
-.login-button button{
+
+.login-button button {
     transition: ease 0.2s;
     font-weight: 600;
     font-size: 1.2rem;
@@ -168,25 +225,28 @@
     border-radius: 15px;
     background: linear-gradient(0deg, #F9A150 0%, #F9A150 100%), linear-gradient(0deg, #FFF 0%, #FFF 100%), linear-gradient(0deg, #FFF 0%, #FFF 100%), #FFF;
 }
-.login-button button:hover{
+
+.login-button button:hover {
     box-shadow: 0px 8px 15px 0px rgba(249, 161, 80, 0.51);
     color: white;
     cursor: pointer;
 }
-.login-bottom{
-    margin-top: 10px; 
+
+.login-bottom {
+    margin-top: 10px;
     gap: 0.5rem;
     justify-content: center;
     display: flex;
 }
-.login-bottom_reques{
+
+.login-bottom_reques {
     transition: ease 0.2s;
     cursor: pointer;
     font-weight: 600;
     color: black;
 }
-.login-bottom_reques:hover{
+
+.login-bottom_reques:hover {
     color: rgb(0, 102, 255);
-}
-</style>
+}</style>
 

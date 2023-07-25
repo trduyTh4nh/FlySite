@@ -1,13 +1,23 @@
 <script>
-import { RouterLink} from 'vue-router'
-export default{
-    components:{
+import { RouterLink } from 'vue-router'
+export default {
+    props:{
+        isLogin: Boolean
+    },
+    components: {
         RouterLink
     },
-    methods:{
-        open(){
-            var login = document.querySelector('.login_cover');
-            login.classList.add('.open_login')
+    methods: {
+        openSignin() {
+            this.$emit("signin-callback", true)
+        },
+        openSignUp() {
+            this.$emit("signup-callback", true)
+        }
+    },
+    data() {
+        return {
+            popUpButton: true
         }
     }
 }
@@ -15,9 +25,7 @@ export default{
 
 </script>
 <template>
-
-
-<div id="web" style="position: relative">
+    <div id="web" style="position: relative">
         <div class="header" style="z-index: 1">
             <div class="header-container" style="width: 100%; position: absolute">
 
@@ -27,7 +35,7 @@ export default{
 
                 <div class="header-container_component">
                     <div class="header-container_component--schedule">
-                        <RouterLink  to='/'>Trang chủ</RouterLink>
+                        <RouterLink to='/'>Trang chủ</RouterLink>
                     </div>
                     <div class="header-container_component--schedule">
                         <RouterLink to='/schedule'>Lịch chuyến bay</RouterLink>
@@ -40,11 +48,11 @@ export default{
                     </div>
                 </div>
 
-                <div class="header-container_btnOption">
-                    <button @click="open" class="btn_sigin">
+                <div v-if="isLogin"  class="header-container_btnOption">
+                    <button @click="openSignin()" class="btn_sigin">
                         <p>Đăng nhập</p>
                     </button>
-                    <button class="btn_sigup">
+                    <button @click="openSignUp()" class="btn_sigup">
                         <p>Đăng ký</p>
                     </button>
 
@@ -54,9 +62,6 @@ export default{
         </div>
 
     </div>
-
-
-
 </template>
 
 

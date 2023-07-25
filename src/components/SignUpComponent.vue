@@ -1,9 +1,39 @@
 <script>
+import { faVuejs } from '@fortawesome/free-brands-svg-icons';
+import { regis } from '../helper';
+export default{
+    methods:{
+        closeSignup(){
+            this.$emit("signup-callback-close", false)
+        },
+        register(){
+            var value = {
+                CCCD: '308239585',
+                DiaChi: 'Tây Ninh',
+                Email: this.$refs.email.value,
+                HinhAnh: '',
+                MaKH: 'KH01',
+                MatKhau: this.$refs.pass.value,
+                SDT: this.$refs.phone.value,
+                TenKH: this.$refs.username.value
+            }
+            if(value.MatKhau.length > 6 && value.MatKhau == this.$refs.repass){
+                regis(value)
+            }
+            else{
+                console.log('không hợp lệ')
+            }
+        }
+        
+    }
+}
+
 </script>
 <template>
+<div class="login_cover" >
     <div id="signup">
         <div class="signup-wrap">
-            <div class="signup-close">
+            <div @click="closeSignup()" class="signup-close">
                 <div class="signup-close-icon">
                     <font-awesome-icon :icon="['fas', 'xmark']" />
                 </div>
@@ -17,24 +47,24 @@
             <div class="signup-wrap-component">
                 <div class="component-input">
                     <div class="signup-email">
-                        <input type="text" placeholder="Enter your email">
+                        <input ref="email" type="email" placeholder="Enter your email">
                     </div>
                     <div class="signup-username">
-                        <input type="text" placeholder="User name">
+                        <input ref="username" type="text" placeholder="User name">
                     </div>
                     <div class="signup-phone">
-                        <input type="text" placeholder="Phone">
+                        <input ref="phone" type="text" placeholder="Phone">
                     </div>
                     <div class="component-password">
                         <div class="signup-pass">
                             <div class="input-icons">
-                                <input type="text" placeholder="Passcode">
+                                <input ref="pass" type="password" placeholder="Passcode">
                                 <font-awesome-icon :icon="['fas', 'eye']" />
                             </div>
                         </div>
                         <div class="signup-repass">
                             <div class="input-icons">
-                                <input type="text" placeholder="Repasscode">
+                                <input ref="repass" type="password" placeholder="Repasscode">
                                 <font-awesome-icon :icon="['fas', 'eye']" />
                             </div>
                         </div>
@@ -49,7 +79,7 @@
                 <span>Having trouble in sigin?</span>
             </div>
 
-            <div class="signup-button">
+            <div @click="register()" class="signup-button">
                 <button>Signup</button>
             </div>
 
@@ -63,4 +93,7 @@
             </div> -->
         </div>
     </div>
+</div>
+    
+ 
 </template>

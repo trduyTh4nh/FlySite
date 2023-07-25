@@ -7,7 +7,18 @@ export default{
   {
     LoginComponent,
     signup: SignupComponent
-  } 
+  },
+  methods:{
+    popUpSearchTakeOff(){
+       this.$emit("popTakeOff-callback", true)
+    },
+    popUpSearchTakeOff(){
+      this.$emit("popArrive-callback", true)
+    },
+    popUpCalender(){
+      this.$emit("popCalender-callback", true)
+    }
+  }
   
 
 }
@@ -27,11 +38,11 @@ export default{
       <div class="box-text">
         <div class="box-text-wrap">
           <div class="box-text1">
-            <h2>Chào mừng bạn đến với bình nguyên vô tận</h2>
+            <h2>Hãy đến đây và bay với chúng tôi!</h2>
           </div>
         </div>
         <div class="box-text2">
-          <p>Đã bay là phải rớt...</p>
+          <p>Hành trình đến vùng đất mới...</p>
         </div>
       </div>
       <div class="box-wrap">
@@ -40,8 +51,7 @@ export default{
 
           <div class="box-search_menu">
             <div class="box-search_menu--wrap">
-
-              <div class="search_menu-go">
+              <div @click="popUpSearchTakeOff()" class="search_menu-go">
                 <div class="go-icon">
                   <font-awesome-icon :icon="['fas', 'plane-departure']" />
                 </div>
@@ -61,7 +71,7 @@ export default{
                 </button>
               </div>
 
-              <div class="search_menu-to">
+              <div @click="popUpSearchTakeOff()" class="search_menu-to">
                 <div class="to-icon">
                   <font-awesome-icon :icon="['fas', 'plane-arrival']" />
                 </div>
@@ -75,8 +85,7 @@ export default{
                 </div>
               </div>
             </div>
-
-            <div class="search_menu-calender">
+            <div @click="popUpCalender()" class="search_menu-calender">
               <div class="calender-icon">
                 <font-awesome-icon :icon="['fas', 'calendar-alt']" />
               </div>
@@ -89,7 +98,6 @@ export default{
                 </div>
               </div>
             </div>
-
             <div class="search_menu-passenger">
               <div class="passenger-icon">
                 <font-awesome-icon :icon="['fas', 'user-friends']" />
@@ -131,27 +139,11 @@ export default{
     </div>
   </div>
   
-  <div class="login_cover" >
-    <LoginComponent></LoginComponent>
-    <signup></signup>
-  </div>
 
 </template>
 <style>
   @import url('../assets/home.css');
 
-  .open_login{
-      display: flex;
-  }
-  .login_cover{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -60rem;
-    background-color: #00000091;
-    width: 100%;
-    height: 1020px;
-    position: relative;
-    opacity: 1;
-  }
+
+
 </style>

@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -20,7 +21,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 5rem;
+    
     position: absolute;
 }
 
@@ -70,7 +71,6 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    margin-top: 2rem;
     }
 .signup-description{
     margin: 1rem;
@@ -247,10 +247,159 @@
     display: flex;
     align-items: center;
 }
-
+.signup-close-icon svg{
+    transition: ease 0.2s ;
+    font-size: 1.5rem;
+}
+.signup-close-icon svg:hover{
+    cursor: pointer;
+    color: #555555;
+}
 
 /* Ticket component */
 
 #ticket{
     margin-top: 5rem;
+}
+/* Search */
+.search-takeoff{
+    animation: pop-in 0.2s ease;
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+}
+.takeoff-iconsearch{
+    border: 1px solid #ccc;
+    border-radius: 1rem 0 0 1rem;
+    padding: 1rem;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    transition: linear 0.2s;
+}
+.takeoff-iconsearch:hover{
+    background-color: #f8a150;
+}
+.takeoff-iconsearch svg{
+    color: #000000;
+    font-size: 2rem;
+}
+.takeoff-iconclose{
+    padding-inline-start: 1rem;
+}
+.search-takeoff input{
+    box-sizing: border-box;
+    color: #000;
+    font-weight: 600;
+    transition: ease 0.1s;
+    padding-left: 1rem;
+    width: 40rem;
+    height: 4rem;
+    border: none;
+    border-radius: 0 1rem 1rem 0;
+    font-size: 1.5rem;
+}
+.search-takeoff input:focus {
+    outline: 2px solid #f8a150;
+}
+.signup-close-icon svg{
+    color: rgb(126, 126, 126);
+}
+.signup-close-icon{
+    transition: linear 0.2s;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.signup-close-icon:hover{
+    background-color: whitesmoke;
+}
+
+
+
+.search-arrrive{
+    animation: pop-in 0.2s ease;
+        box-sizing: border-box;
+    align-items: center;
+    display: flex;
+}
+.arrrive-iconsearch{
+    border: 1px solid #ccc;
+    border-radius: 1rem 0 0 1rem;
+    padding: 1rem;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    transition: linear 0.2s;
+}
+.arrrive-iconsearch:hover{
+    background-color: #f8a150;
+}
+.arrrive-iconsearch svg{
+    color: #000000;
+    font-size: 2rem;
+}
+.arrrive-iconclose{
+    padding-inline-start: 1rem;
+}
+.search-arrrive input{
+    box-sizing: border-box;
+    color: #000;
+    font-weight: 600;
+    transition: ease 0.1s;
+    padding-left: 1rem;
+    width: 40rem;
+    height: 4rem;
+    border: none;
+    border-radius: 0 1rem 1rem 0;
+    font-size: 1.5rem;
+}
+.search-arrrive input:focus {
+    outline: 2px solid #f8a150;
+}
+.signup-close-icon svg{
+    color: rgb(94, 94, 94);
+}
+.signup-close-icon{
+    transition: linear 0.2s;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+.signup-close-icon svg:hover{
+    color: #faa150;
+}
+
+#signup{
+    animation: pop-in ease 0.2s;
+}
+#login{
+    animation: pop-in ease 0.2s;
+}
+@keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.7); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+
+  /* Calender */
+.wrap-calender{
+    display: flex;
+}
+.calender-close svg{
+    cursor: pointer;
+    color: rgb(255, 156, 156);
+    margin-left: 0.5rem;
+    font-size: 2rem;
+    transition: ease 0.2s;
+}
+.calender-close svg:hover{
+    color: rgb(255, 82, 82); ;
 }
