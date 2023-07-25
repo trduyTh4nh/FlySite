@@ -16,7 +16,9 @@ h1{
     color: white;
     padding: 0 10px 0 10px;
 }
-
+.header{
+    position: fixed;
+}
 * {
     margin: 0;
     padding: 0;

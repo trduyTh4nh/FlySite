@@ -29,6 +29,7 @@ export default{
 
 <template>
   <div id="main-body">
+    
     <div class="cover">
     </div>
     <div class="body-img">

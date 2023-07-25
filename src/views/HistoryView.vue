@@ -6,8 +6,13 @@ export default{
     }
 }
 </script>
-<template >
-    <div class="main-history">
-        <TicketComponent></TicketComponent>
+<template>
+    <div class="view_body">
+        <TicketComponent/>
     </div>
 </template>
+<style>
+    .view_body{
+        padding-top: 5rem;
+    }
+</style>

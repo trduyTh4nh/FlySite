@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import History from '../views/HistoryView.vue'
 import ScheduleView from '../views/SheduleView.vue'
 import Passenger from '../views/PassengerView.vue'
+import SearchResult  from '../views/ResultSearchView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/history',
       name: 'history',
       component: History
+    },
+    {
+      path: '/search/result',
+      name: 'Search result for "Cứng"',
+      component: SearchResult
     }
     
   ]

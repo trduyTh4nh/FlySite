@@ -3,6 +3,6 @@
 </script>
 <template>
     <div id="ticket">
-        test
+        <p>Test</p>
     </div>
 </template>

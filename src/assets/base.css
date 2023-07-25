@@ -417,3 +417,40 @@
     .search_menu-btnreverse:hover {
       cursor: pointer;
     }
+    /* SearchResult */
+    .background_top{
+      position: relative;
+      top: 0;
+      left: 0;
+      height: 25rem;
+      width: 100%;
+      overflow: hidden;
+      border-bottom-left-radius: 26px;
+      border-bottom-right-radius: 26px;
+    }
+    .background_top img{
+      position:absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      object-position: 0rem -10rem;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    button{
+      transition: ease 0.2s;
+      padding: 10px;
+      background-color: #F9A150;
+      border: none;
+      box-shadow: 0px 8px 15px 0px rgba(249, 161, 80, 0.51);
+      border-radius: 10px;
+      font-size: 1rem;
+      color: white;
+    }
+    button:hover{
+      box-shadow: 0px 0px 0px 0px rgba(249, 161, 80, 0.51);
+    }
+    button:active{
+      transform: scale(95%);
+    }
