@@ -6,7 +6,7 @@ import Login from './components/LoginComponent.vue'
 import SearchTakeOff from './components/TakeOfComponent.vue'
 import SearchArrive from './components/ArriveComponent.vue'
 import Calender from './components/CalenderComponent.vue'
-
+import TicketType from './components/TicketTypeComponent.vue'
 export default{
   components:{
     Header,
@@ -16,7 +16,8 @@ export default{
     RouterView,
     SearchTakeOff,
     SearchArrive,
-    Calender
+    Calender,
+    TicketType
   },
   data(){
     return {
@@ -37,6 +38,7 @@ export default{
     <SearchTakeOff  @hide-takeoff="e => popupTakeOff = e" v-if="popupTakeOff" ></SearchTakeOff>
     <Register @signup-callback-close="e => dialogRegis = e" v-if="dialogRegis"></Register>
     <Login  @hide-button="e => isLogin = e" @login-callback-close="e => dialogLogin = e"  v-if="dialogLogin"></Login>
+    <TicketType></TicketType>
     <div id="app-main_header">
       <Header :isLogin="isLogin" @signin-callback="e => dialogLogin = e" @signup-callback="e => dialogRegis = e"></Header>
     </div>

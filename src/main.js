@@ -15,12 +15,13 @@ import { faLandmarkAlt, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faShield } from '@fortawesome/free-solid-svg-icons' 
 import { faShieldAlt } from '@fortawesome/free-solid-svg-icons'
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons'
-import { faPlaneArrival } from '@fortawesome/free-solid-svg-icons'
+import { faPlaneArrival, faCrown } from '@fortawesome/free-solid-svg-icons'
 import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons'
 import { faCalendarAlt, faXmark} from '@fortawesome/free-solid-svg-icons'
 import { faUserFriends, faArrowRight, faCalendar, faTicket, faUser, faMagnifyingGlass, faTicketAlt, faSearch, faEye, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { VueFire } from 'vuefire'
 import VueTailwindDatepicker from 'vue-tailwind-datepicker'
+import { faC } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faTicketAlt, faSearch, faEye, faLandmarkAlt, faXmark)
 library.add(faPhone, faCircleXmark)
@@ -36,6 +37,7 @@ library.add(faCalendar)
 library.add(faTicket)
 library.add(faUser)
 library.add(faMagnifyingGlass)
+library.add(faCrown)
 const app = createApp(App)
 
 library.add(faShield)
