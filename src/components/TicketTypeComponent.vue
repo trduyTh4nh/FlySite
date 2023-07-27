@@ -1,12 +1,18 @@
 <script>
-
+export default{
+    methods: {
+        hidePop(){
+            this.$emit("close-popUp", false)
+        }
+    }
+}
 </script>
 <template>
     <div class="ticket_type_wrapper">
         <div class="type_wrapper">
             <div class="title">
                 <h2>Chọn hạng vé</h2>
-                <div class="icon_wrapper">
+                <div  @click="hidePop()" class="icon_wrapper">
                     <font-awesome-icon :icon="['fas', 'xmark']" />
                 </div>
             </div>
