@@ -1,6 +1,7 @@
 <script>
 import { faVuejs } from '@fortawesome/free-brands-svg-icons';
 import { regis } from '../helper';
+import { faArrowLeftRotate } from '@fortawesome/free-solid-svg-icons';
 export default{
     methods:{
         closeSignup(){
@@ -17,13 +18,16 @@ export default{
                 SDT: this.$refs.phone.value,
                 TenKH: this.$refs.username.value
             }
-            if(value.MatKhau.length > 6 && value.MatKhau == this.$refs.repass){
-                regis(value)
+            if(value.MatKhau.length > 6 && value.MatKhau == this.$refs.repass.value){
+                regis(value).then(e => alert("Đăng kí thành công!"))
+                
+            
             }
             else{
-                console.log('không hợp lệ')
+                alert("Không thành công!")
             }
         }
+        
         
     }
 }
@@ -79,7 +83,7 @@ export default{
                 <span>Having trouble in sigin?</span>
             </div>
 
-            <div @click="register()" class="signup-button">
+            <div  @click="register()" class="signup-button">
                 <button>Signup</button>
             </div>
 

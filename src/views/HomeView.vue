@@ -20,7 +20,11 @@ export default{
     },
     popUpAdult(){
       this.$emit("popUpAdult-callback", true)
+    },
+    popUpTicket(){
+      this.$emit("popUpTicket-callback", true);
     }
+
   }
   
 
@@ -116,7 +120,7 @@ export default{
               </div>
             </div>
 
-            <div class="search_menu-ticket">
+            <div @click="popUpTicket()" class="search_menu-ticket">
               <div class="passenger-icon">
                 <font-awesome-icon :icon="['fas', 'ticket-alt']" />
               </div>
