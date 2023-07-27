@@ -7,6 +7,8 @@ import SearchTakeOff from './components/TakeOfComponent.vue'
 import SearchArrive from './components/ArriveComponent.vue'
 import Calender from './components/CalenderComponent.vue'
 import TicketType from './components/TicketTypeComponent.vue'
+import Adult from './components/AdultComponent.vue'
+
 export default{
   components:{
     Header,
@@ -17,7 +19,8 @@ export default{
     SearchTakeOff,
     SearchArrive,
     Calender,
-    TicketType
+    TicketType,
+    Adult
   },
   data(){
     return {
@@ -26,13 +29,15 @@ export default{
       isLogin: true,
       popupTakeOff: false,
       popupArrive: false,
-      popUpCalender: false
+      popUpCalender: false,
+      popUpAdult: false
     }
   }
 }
 </script>
 <template>
   <div id="app-main">
+    <Adult @hide-adult="e => popUpAdult = e" v-if="popUpAdult"></Adult>
     <Calender @hide-calender="e => popUpCalender = e"  v-if="popUpCalender" style="position: absolute;z-index: 5;"></Calender>
     <SearchArrive @hide-arrive="e => popupArrive = e" v-if="popupArrive"></SearchArrive>
     <SearchTakeOff  @hide-takeoff="e => popupTakeOff = e" v-if="popupTakeOff" ></SearchTakeOff>
@@ -44,7 +49,7 @@ export default{
     </div>
       <div id="app-main_body">
 
-        <RouterView  @popCalender-callback="e => popUpCalender = e" @popArrive-callback="e => popupArrive = e" @popTakeOff-callback="e => popupTakeOff = e" ></RouterView>
+        <RouterView @popUpAdult-callback="e => popUpAdult = e"   @popCalender-callback="e => popUpCalender = e" @popArrive-callback="e => popupArrive = e" @popTakeOff-callback="e => popupTakeOff = e" ></RouterView>
       </div>
   </div>
 </template>

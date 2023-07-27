@@ -17,6 +17,9 @@ export default{
     },
     popUpCalender(){
       this.$emit("popCalender-callback", true)
+    },
+    popUpAdult(){
+      this.$emit("popUpAdult-callback", true)
     }
   }
   
@@ -68,7 +71,7 @@ export default{
 
               <div class="search_menu-btnreverse">
                 <button>
-                  <font-awesome-icon :icon="['fas', 'exchange-alt']" />
+                  <font-awesome-icon :icon="['fas', 'arrow-right-arrow-left']" />
                 </button>
               </div>
 
@@ -99,7 +102,7 @@ export default{
                 </div>
               </div>
             </div>
-            <div class="search_menu-passenger">
+            <div @click="popUpAdult()" class="search_menu-passenger">
               <div class="passenger-icon">
                 <font-awesome-icon :icon="['fas', 'user-friends']" />
               </div>
