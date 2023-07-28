@@ -3,6 +3,10 @@ import LoginComponent from '../components/LoginComponent.vue'
 import SignupComponent from '../components/SignUpComponent.vue'
 
 export default{
+  props:{
+    CityTo: String,
+    CityFrom: String,
+  },
   components:
   {
     LoginComponent,
@@ -23,6 +27,15 @@ export default{
     },
     popUpTicket(){
       this.$emit("popUpTicket-callback", true);
+    },
+    changepage(){
+      var test = {
+        a: "b",
+        b: "a"
+      }
+      var string = JSON.stringify(test)
+      console.log(string)
+      this.$router.push({name: "Result", query: {q: string}})
     }
 
   }
@@ -68,7 +81,7 @@ export default{
                     <h4>Thành phố khởi hành</h4>
                   </div>
                   <div class="go-info--city">
-                    <p>Thành phố Hồ Chí Minh - Viêt</p>
+                    <p class="no_wrap">{{ CityFrom }}</p>
                   </div>
                 </div>
               </div>
@@ -88,7 +101,7 @@ export default{
                     <h4>Arrival city</h4>
                   </div>
                   <div class="to-info--city">
-                    <p>Abu Dhabi - UAE</p>
+                    <p class="no_wrap">{{ CityTo }}</p>
                   </div>
                 </div>
               </div>
@@ -99,10 +112,10 @@ export default{
               </div>
               <div class="calender-info">
                 <div class="calender-info--tittle">
-                  <h4>Depature - Arrival</h4>
+                  <h4 class="">Depature - Arrival</h4>
                 </div>
                 <div class="calender-info--city">
-                  <p>28 Feb - 3 Mar</p>
+                  <p class="no_wrap">28 Feb - 3 Mar</p>
                 </div>
               </div>
             </div>
@@ -134,7 +147,7 @@ export default{
               </div>
             </div>
             <div class="search_menu-button">
-              <button>
+              <button @click="changepage()">
                 <div class="search_menu-button_warp">
                   <font-awesome-icon :icon="['fas', 'search']" />
                   <span>Search</span>

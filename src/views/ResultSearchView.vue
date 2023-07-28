@@ -4,6 +4,12 @@
         components: {
             Ticket
         },
+        mounted(){
+            var test = this.$route.query.q;
+            console.log(this.$route.query.q)
+            var obj = JSON.parse(test)
+            console.log(obj)
+        },
         data(){
             return {
                 tickets: [

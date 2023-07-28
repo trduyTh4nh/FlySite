@@ -93,7 +93,7 @@ export default {
 }
 
 .login_cover {
-    z-index: 1;
+    z-index: 10;
     position: fixed;
     display: flex;
     top: 0;

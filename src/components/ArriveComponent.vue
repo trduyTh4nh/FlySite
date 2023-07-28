@@ -3,6 +3,11 @@ export default{
     methods:{
         hidePop(){
             this.$emit("hide-arrive", false)
+            console.log("hello")
+        }, 
+        search(){
+            console.log("Hello")
+            this.$emit("result", this.$refs.takeoff.value)
         }
     }
 }
@@ -10,11 +15,11 @@ export default{
 <template>
      <div class="login_cover">
         <div class="search-arrrive">
-            <div  class="arrrive-iconsearch">
+            <div  class="arrrive-iconsearch" @click="search()">
                 <font-awesome-icon :icon="['fas', 'search']" />
             </div>
             <div class="arrrive-input">
-                <input type="text" placeholder="Search your fly">
+                <input type="text" placeholder="Search your fly" ref="takeoff">
             </div>
             <div @click="hidePop()" class="arrrive-iconclose">
                 <div class="signup-close-icon">

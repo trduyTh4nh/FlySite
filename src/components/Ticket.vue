@@ -1,7 +1,8 @@
 <script>
     export default{
         props:[
-            "ticket"
+            "ticket",
+            "bookButton"
         ]
     }
 </script>
@@ -13,7 +14,7 @@
         <div class="ticket_details">
             <div class="flight_time">
                 <div class="time_detail">
-                    <p>{{ `${ticket.NgayBay.day.getDay()} / ${ticket.NgayBay.day.getMonth()}` }}</p>
+                    <p>27 Feb</p>
                     <h3>23:56</h3>
                     <div class="destination">
                         <p>SGN</p>
@@ -42,7 +43,7 @@
                 <h2>1000 VND</h2>
                 <p>Mỗi hành khách</p>
             </div>
-            <button>Đặt ngay</button>
+            <button v-if="bookButton">Đặt ngay</button>
         </div>
     </div>
 </template>
@@ -104,5 +105,21 @@
     }
     .arrival{
         background-color: #F9A150;
+    }
+    button{
+      transition: ease 0.2s;
+      padding: 10px;
+      background-color: #F9A150;
+      border: none;
+      box-shadow: 0px 8px 15px 0px rgba(249, 161, 80, 0.51);
+      border-radius: 10px;
+      font-size: 1rem;
+      color: white;
+    }
+    button:hover{
+      box-shadow: 0px 0px 0px 0px rgba(249, 161, 80, 0.51);
+    }
+    button:active{
+      transform: scale(95%);
     }
 </style>

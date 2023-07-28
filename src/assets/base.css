@@ -73,6 +73,9 @@
 
     .box-search_menu--wrap {
       display: flex;
+      align-items: center;
+      width: 50%;
+
     }
 
     .box-search {
@@ -118,12 +121,11 @@
       border-left: 2px solid #ccc;
       border-right: 1px solid #ccc;
       align-items: center;
-      justify-content: space-around;
-      width: fit-content;
+      width: 0px;
       padding: 15px;
-      height: fit-content;
       display: flex;
       gap: 15px;
+      flex: 1;
       padding-right: 35px;
     }
 
@@ -189,19 +191,19 @@
       border-bottom-right-radius: 15px;
       border-top-right-radius: 15px;
       align-items: center;
-      justify-content: space-around;
       border-top: 2px solid #ccc;
       border-bottom: 2px solid #ccc;
       border-left: 1px solid #ccc;
       border-right: 2px solid #ccc;
       /* box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;*/
-      width: fit-content;
-      height: fit-content;
+      width: 0px;
       display: flex;
       padding: 15px;
       padding-left: 35px;
       gap: 15px;
       transition: linear 0.2s;
+      flex: 1;
+
     }
 
     .search_menu-to:hover {
@@ -238,8 +240,8 @@
       border-radius: 15px;
       /*box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;*/
       align-items: center;
-      justify-content: space-around;
-      width: 240px;
+      gap: 25px;
+      width: 25%;
       height: 80px;
       display: flex;
       transition: linear 0.2s;
@@ -252,7 +254,7 @@
     }
 
     .calender-icon {
-      margin-left: 5px;
+      margin-left: 15px;
       border-radius: 100%;
       display: flex;
       align-items: center;
@@ -438,19 +440,12 @@
       height: 100%;
       z-index: -1;
     }
-    button{
-      transition: ease 0.2s;
-      padding: 10px;
-      background-color: #F9A150;
-      border: none;
-      box-shadow: 0px 8px 15px 0px rgba(249, 161, 80, 0.51);
-      border-radius: 10px;
-      font-size: 1rem;
-      color: white;
+    p{
+      text-overflow: ellipsis;
     }
-    button:hover{
-      box-shadow: 0px 0px 0px 0px rgba(249, 161, 80, 0.51);
+    .no_wrap{
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      white-space: nowrap;
     }
-    button:active{
-      transform: scale(95%);
-    }
+    

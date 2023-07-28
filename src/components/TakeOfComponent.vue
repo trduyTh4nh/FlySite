@@ -6,18 +6,23 @@ export default{
     methods:{
         hidePop(){
             this.$emit("hide-takeoff", false)
+
+        },
+        search(){
+            console.log("Hello")
+            this.$emit("result", takeoff.value)
         }
     }
 }
 </script>
 <template>
      <div class="login_cover">
-        <div class="search-takeoff">
-            <div class="takeoff-iconsearch">
+        <div class="search-takeoff" >
+            <div @click="search()" class="takeoff-iconsearch">
                 <font-awesome-icon :icon="['fas', 'search']" />
             </div>
             <div class="takeoff-input">
-                <input type="text" placeholder="Search your fly">
+                <input v-model="takeoff" type="text" placeholder="Search your fly">
             </div>
             <div @click="hidePop()" class="takeoff-iconclose">
                 <div class="signup-close-icon">
