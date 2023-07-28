@@ -3,11 +3,11 @@ export default{
     methods:{
         hidePop(){
             this.$emit("hide-arrive", false)
-            console.log("hello")
+        },
+        transfer(){
+            console.log("Arrive")
+            this.$emit("connect-arrive", this.$refs.arrive.value))
         }, 
-        search(){
-            console.log("Hello")
-            this.$emit("result", this.$refs.takeoff.value)
         }
     }
 }
@@ -15,11 +15,11 @@ export default{
 <template>
      <div class="login_cover">
         <div class="search-arrrive">
-            <div  class="arrrive-iconsearch" @click="search()">
+            <div @click="transfer()"  class="arrrive-iconsearch">
                 <font-awesome-icon :icon="['fas', 'search']" />
             </div>
             <div class="arrrive-input">
-                <input type="text" placeholder="Search your fly" ref="takeoff">
+                <input ref="arrive" type="text" placeholder="Search your fly">
             </div>
             <div @click="hidePop()" class="arrrive-iconclose">
                 <div class="signup-close-icon">

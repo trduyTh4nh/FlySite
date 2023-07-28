@@ -5,10 +5,9 @@
             Ticket
         },
         mounted(){
-            var test = this.$route.query.q;
-            console.log(this.$route.query.q)
-            var obj = JSON.parse(test)
-            console.log(obj)
+            var result = this.$route.query.q;
+            var resultClass = JSON.parse(result)
+            console.log(resultClass)
         },
         data(){
             return {

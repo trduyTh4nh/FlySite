@@ -46,3 +46,6 @@ export async function checkvar(email, pass){
     console.log(res)
     return res.length > 0
 }
+export async function search(objSearch){
+
+}

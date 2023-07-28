@@ -118,6 +118,11 @@ body {
 .box-search{
     padding: 25px;
 }
+
+.search_menu-button button{
+    width: 9rem;
+    border: none;
+}
 .go-info--city p {
     width: 75%;
     font-size: 18px;

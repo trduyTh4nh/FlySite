@@ -424,6 +424,9 @@
     color: #faa150;
 }
 
+.type_wrapper{
+    animation: pop-in ease 0.2s;
+}
 #signup {
     animation: pop-in ease 0.2s;
 }
@@ -623,17 +626,51 @@
 }
 
 .adult-large_quantity svg:hover{
-    
+    color: rgb(223, 123, 42);
     cursor: pointer;
-    font-size: large;
 }
 
 .adult-child_quantity svg:hover{
-    font-size: large;
+    color: rgb(223, 123, 42);
     cursor: pointer;
 }
 .adult-super-child_quantity svg:hover{
-    font-size: large;
+    color: rgb(223, 123, 42);
     cursor: pointer;
 }
+.btn-calender{
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+    margin-left: -15px;
+}
+.btn-calender button{
+    width: 10rem;
+}
 
+.calender-info--city p{
+    font-size: 1.1rem;
+}
+.search_menu-passenger{
+    width: 11.5rem;
+}
+.search_menu-ticket{
+    width: 11rem;
+}
+.search_menu-calender{
+    width: 18rem;
+}
+.adult-wrap{
+
+}
+.btn-adult{
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+}
+.btn-adult button{
+    width: 10rem;
+}
+.adult-btnClose svg{
+    margin-top: 0.5rem;
+}
