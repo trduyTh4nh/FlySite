@@ -1,42 +1,26 @@
 <script>
     import Ticket from '../components/Ticket.vue'
+    import {getSearch} from '../helper'
     export default{
         components: {
-            Ticket
+            Ticket,
+    
         },
         mounted(){
             var result = this.$route.query.q;
             var resultClass = JSON.parse(result)
+            this.result = resultClass
             console.log(resultClass)
+            getSearch(resultClass).then(
+                e => {
+                    this.tickets = e;
+                }
+            )
         },
         data(){
             return {
-                tickets: [
-                    {
-                        LogoHang: "../assets/vietjet.png",
-                        NgayBay: {day: new Date("2023-02-32")},
-                        ThoiGianBay: 2,
-                        DiemDi: "SGN",
-                        DiemDen: "HAN",
-                        GiaVe: 1400000
-                    },
-                    {
-                        LogoHang: "../assets/vietjet.png",
-                        NgayBay: {day: new Date("2023-12-03T12:32:12.123Z")},
-                        ThoiGianBay: 2,
-                        DiemDi: "SGN",
-                        DiemDen: "HAN",
-                        GiaVe: 1400000
-                    },
-                    {
-                        LogoHang: "../assets/vietjet.png",
-                        NgayBay: {day: new Date("2023-12-03T12:32:12.123Z")},
-                        ThoiGianBay: 2,
-                        DiemDi: "SGN",
-                        DiemDen: "HAN",
-                        GiaVe: 1400000
-                    }
-                ]
+                tickets: [],
+                result: JSON.parse(this.$route.query.q)
             }
         }
     }
@@ -51,8 +35,8 @@
                         <font-awesome-icon :icon="['fas', 'plane-departure']" />
                     </div>
                     <div>
-                        <h1>Query</h1>
-                        <p>Query</p>
+                        <h1>{{ result.cityFrom }}</h1>
+                        <p>Điểm đi</p>
                     </div>
                 </div>
                 <font-awesome-icon style="font-size: 2rem;" :icon="['fas', 'arrow-right']" />
@@ -61,8 +45,8 @@
                         <font-awesome-icon :icon="['fas', 'plane-arrival']" />
                     </div>
                     <div>
-                        <h1>Query</h1>
-                        <p>Query</p>
+                        <h1>{{ result.cityTo }}</h1>
+                        <p>Điểm về</p>
                     </div>
                 </div>
             </div>
@@ -72,8 +56,8 @@
                         <font-awesome-icon :icon="['far', 'calendar']" />
                     </div>
                     <div>
-                        <h3>Departure</h3>
-                        <a>0/0/0000</a>
+                        <h3>Ngày đi</h3>
+                        <a>{{ result.dateFlight.start }}</a>
                     </div>
                 </div>
                 <div class="depart">
@@ -81,8 +65,8 @@
                         <font-awesome-icon :icon="['far', 'calendar']" />
                     </div>
                     <div>
-                        <h3>Arrival</h3>
-                        <a>0/0/0000</a>
+                        <h3>Ngày về</h3>
+                        <a>{{ result.dateFlight.end }}</a>
                     </div>
                 </div>
                 <div class="depart">
@@ -91,7 +75,7 @@
                     </div>
                     <div>
                         <h3>Passengers</h3>
-                        <a>Doesn't matter</a>
+                        <a>{{ result.qtAdult.numAdult }} người lớn, {{ result.qtAdult.numChild }} trẻ em, {{ result.qtAdult.numBaby }} em bé</a>
                     </div>
                 </div>
                 <div class="depart">
@@ -100,11 +84,11 @@
                     </div>
                     <div>
                         <h3>Ticket type</h3>
-                        <a>Economy</a>
+                        <a>{{ result.type }}</a>
                     </div>
                 </div>
             </div>
-            <button class="btn_search">
+            <button @click="this.$router.push('/')" class="btn_search">
                 <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
                 <p>Search again</p>
             </button>

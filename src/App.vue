@@ -1,7 +1,7 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
 import Header from './views/Header.vue'
-import Register from './components/SignUpComponent.vue'
+import Register from './components/signupcomponent.vue'
 import Login from './components/LoginComponent.vue'
 import SearchTakeOff from './components/TakeOfComponent.vue'
 import SearchArrive from './components/ArriveComponent.vue'
