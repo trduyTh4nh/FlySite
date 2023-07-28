@@ -46,6 +46,34 @@ export async function checkvar(email, pass){
     console.log(res)
     return res.length > 0
 }
-export async function search(objSearch){
-
+export async function getSearch(obj){
+    const chuyenbay = await getFlightIdByQuery(obj);
+    const idCB = chuyenbay[0].MaChuyenBay
+    var result = []
+    console.log(obj)
+    const q = query(collection(db, 'VeBay'), where("HangVe", "==", obj.type, "and", "NgayDi", "==", obj.dateFlight.start, "and", "NgayVe", "==", obj.dateFlight.end, "and", "ChuyenBay", "==", idCB))
+    const snap = await getDocs(q)
+    var res = snap.docs.map(doc => doc.data())
+    for (var e of res){
+       result.push(
+        {
+            GiaVe: e.GiaVe,
+            HangVe: e.HangVe,
+            NgayDi: e.NgayDi,
+            NgayVe: e.NgayVe,
+            cityFrom: chuyenbay[0].DiemDi,
+            cityTo: chuyenbay[0].DiemDen,
+            ThoiGianBay: chuyenbay[0].ThoiGianBay
+        }
+       ) 
+    }
+    console.log(result)
+    return result
+}
+async function getFlightIdByQuery(obj){
+    const q = query(collection(db, 'ChuyenBay'), where("DiemDen", "==", obj.cityTo, "and", "DiemDi", "==", obj.cityFrom));
+    const snap = await getDocs(q)
+    var res = snap.docs.map(doc => doc.data())
+    console.log(res)
+    return res
 }
