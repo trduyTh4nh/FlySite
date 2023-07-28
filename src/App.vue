@@ -34,11 +34,12 @@ export default{
       popUpCalender: false,
       popUpAdult: false,
       popUpTicketType: false,
-      takeoff: "Nhập chuyến bay hiện tại",
+      takeoff: "Nhập chuyến bay đi",
       arrive: "Nhập chuyến bay đến",
       dateFlight: "00 Ngày - 0",
       ticketType: "Loại vé",
-      quantityAdult: {}
+      quantityAdult: {},
+      userbox: false
     }
   },
   methods:{
@@ -62,12 +63,13 @@ export default{
 
     <Register @signup-callback-close="e => dialogRegis = e" v-if="dialogRegis"></Register>
 
-    <Login  @hide-button="e => isLogin = e" @login-callback-close="e => dialogLogin = e"  v-if="dialogLogin"></Login>
+    <Login @show-user="e => userbox = e"  @hide-button="e => isLogin = e" @login-callback-close="e => dialogLogin = e"  v-if="dialogLogin"></Login>
     <div id="app-main_header">  
-      <Header :isLogin="isLogin" @signin-callback="e => dialogLogin = e" @signup-callback="e => dialogRegis = e"></Header>
+      <Header :showUser="userbox"   :isLogin="isLogin" @signin-callback="e => dialogLogin = e" @signup-callback="e => dialogRegis = e"></Header>
     </div>
       <div id="app-main_body">
-        <RouterView :QTTadult="quantityAdult" :TicketType="ticketType" :DateFlight="dateFlight"  :CityTo="arrive" @popDest-callback="e => {popupTakeOff = true}" :CityFrom="takeoff" @popUpTicket-callback="e => popUpTicketType = e" @popUpAdult-callback="e => popUpAdult = e"   @popCalender-callback="e => popUpCalender = e" @popArrive-callback="e => popupArrive = e" @popTakeOff-callback="e => popupTakeOff = e" ></RouterView>
+
+        <RouterView   :QTTadult="quantityAdult" :TicketType="ticketType" :DateFlight="dateFlight"  :CityTo="arrive" @popDest-callback="e => {popupTakeOff = true}" :CityFrom="takeoff" @popUpTicket-callback="e => popUpTicketType = e" @popUpAdult-callback="e => popUpAdult = e"   @popCalender-callback="e => popUpCalender = e" @popArrive-callback="e => popupArrive = e" @popTakeOff-callback="e => popupTakeOff = e" ></RouterView>
 
       </div>
   </div>

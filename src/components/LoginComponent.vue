@@ -4,6 +4,7 @@ export default {
     methods: {
         closeLogin() {
             this.$emit("login-callback-close", false)
+           
         },
         login() {
             var val = {
@@ -13,6 +14,7 @@ export default {
             checkvar(val.email, val.pass).then(
                 e => {
                     if(e){
+                        this.$emit("show-user", true)
                         this.hideButton();
                         this.closeLogin();
                     }

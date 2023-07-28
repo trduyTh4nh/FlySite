@@ -2,7 +2,9 @@
 import { RouterLink } from 'vue-router'
 export default {
     props:{
-        isLogin: Boolean
+        isLogin: Boolean,
+        isUser: Boolean,
+        showUser: Boolean
     },
     components: {
         RouterLink
@@ -13,6 +15,12 @@ export default {
         },
         openSignUp() {
             this.$emit("signup-callback", true)
+        },
+        loginSuccess(){
+            this.$emit("login-success", true)
+        },
+        check(){
+            console.log(this.showUser);
         }
     },
     data() {
@@ -29,7 +37,7 @@ export default {
         <div class="header" style="z-index: 1">
             <div class="header-container" style="width: 100%; position: absolute">
 
-                <div class="header-container_logo">
+                <div @click="check()" class="header-container_logo">
                     <img src="https://cdn.discordapp.com/attachments/1072404748818456578/1130747259026411661/FlySite.png" />
                 </div>
 
@@ -45,6 +53,15 @@ export default {
                     </div>
                     <div class="header-container_component--order">
                         <RouterLink to='/history'>Lịch sử đặt vé</RouterLink>
+                    </div>
+                </div>
+
+                <div  v-if="isUser = showUser" class="header-container_btnOption">
+                    <div class="imgwrap">
+                        <img src="https://img.freepik.com/free-icon/user_318-563642.jpg?w=360">
+                    </div>
+                    <div class="header-name-user">
+                        <span>Trần Duy Thanh</span>
                     </div>
                 </div>
 

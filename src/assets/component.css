@@ -674,3 +674,16 @@
 .adult-btnClose svg{
     margin-top: 0.5rem;
 }
+.imgwrap img{
+    width: 3rem;
+}
+.header-container_btnOption{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.header-name-user{
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(180, 180, 180)
+}
