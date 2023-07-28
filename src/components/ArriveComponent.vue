@@ -6,7 +6,8 @@ export default{
         },
         transfer(){
             console.log("Arrive")
-            this.$emit("connect-arrive", this.$refs.arrive.value)
+            this.$emit("connect-arrive", this.$refs.arrive.value))
+        }, 
         }
     }
 }

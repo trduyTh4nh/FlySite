@@ -4,6 +4,10 @@ import SignupComponent from '../components/SignUpComponent.vue'
 import TakeOff from '../components/TakeOfComponent.vue'
 
 export default{
+  props:{
+    CityTo: String,
+    CityFrom: String,
+  },
   components:
   {
     LoginComponent,
@@ -136,7 +140,7 @@ export default{
               </div>
               <div class="calender-info">
                 <div class="calender-info--tittle">
-                  <h4>Depature - Arrival</h4>
+                  <h4 class="">Depature - Arrival</h4>
                 </div>
                 <div class="calender-info--city">
                   <p>{{ DateFlight.start }} - {{ DateFlight.end }}</p>
@@ -172,6 +176,7 @@ export default{
             </div>
             <div class="search_menu-button">
               <button @click="search()">
+
                 <div class="search_menu-button_warp">
                   <font-awesome-icon :icon="['fas', 'search']" />
                   <span>Tìm kiếm</span>

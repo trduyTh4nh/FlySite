@@ -48,6 +48,7 @@ export default{
 </script>
 <template>
   <div id="app-main">
+
     <TicketType @callback-tiket="e => {ticketType = e, popUpTicketType = false}" @close-popUp="e => popUpTicketType = e" v-if="popUpTicketType" ></TicketType>
 
     <Adult @call-tohome="e => {quantityAdult = e, popUpAdult= false}" @hide-adult="e => popUpAdult = e" v-if="popUpAdult"></Adult>
@@ -58,6 +59,7 @@ export default{
 
     <SearchTakeOff  @takeoff-connect="e => {takeoff = e; popupTakeOff = false}" @hide-takeoff="e => popupTakeOff = e" v-if="popupTakeOff" ></SearchTakeOff>
 
+
     <Register @signup-callback-close="e => dialogRegis = e" v-if="dialogRegis"></Register>
 
     <Login  @hide-button="e => isLogin = e" @login-callback-close="e => dialogLogin = e"  v-if="dialogLogin"></Login>
@@ -66,6 +68,7 @@ export default{
     </div>
       <div id="app-main_body">
         <RouterView :QTTadult="quantityAdult" :TicketType="ticketType" :DateFlight="dateFlight"  :CityTo="arrive" @popDest-callback="e => {popupTakeOff = true}" :CityFrom="takeoff" @popUpTicket-callback="e => popUpTicketType = e" @popUpAdult-callback="e => popUpAdult = e"   @popCalender-callback="e => popUpCalender = e" @popArrive-callback="e => popupArrive = e" @popTakeOff-callback="e => popupTakeOff = e" ></RouterView>
+
       </div>
   </div>
 </template>
