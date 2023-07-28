@@ -1,12 +1,26 @@
 <script>
 import LoginComponent from '../components/LoginComponent.vue'
 import SignupComponent from '../components/SignUpComponent.vue'
+import TakeOff from '../components/TakeOfComponent.vue'
 
 export default{
   components:
   {
     LoginComponent,
-    signup: SignupComponent
+    signup: SignupComponent,
+    TakeOff
+  },
+  props:{
+    CityFrom: String,
+    CityTo: String,
+    DateFlight: String,
+    TicketType: String,
+    QTTadult: Object
+  },
+  data(){
+    return {
+        
+    }
   },
   methods:{
     popUpSearchTakeOff(){
@@ -20,12 +34,35 @@ export default{
     },
     popUpAdult(){
       this.$emit("popUpAdult-callback", true)
+      this.testdata()
     },
     popUpTicket(){
       this.$emit("popUpTicket-callback", true);
+    },
+    popUpDestTakeOff(){
+      console.log("Take off");
+      this.$emit("popDest-callback", true)
+    },
+    search(){
+      var cityFrom = this.CityFrom
+      var cityTo = this.CityTo
+      var dateFlight = this.DateFlight;
+      var type = this.TicketType;
+      var qtAdult = this.QTTadult;
+      var query = {
+        cityFrom: cityFrom,
+        cityTo: cityTo,
+        dateFlight: dateFlight,
+        type: type,
+        qtAdult: qtAdult,
+      }
+      var stringQuery = JSON.stringify(query)
+      this.$router.push({name: "Search", query:{q: stringQuery}})
     }
 
-  }
+  },
+
+
   
 
 }
@@ -59,7 +96,7 @@ export default{
 
           <div class="box-search_menu">
             <div class="box-search_menu--wrap">
-              <div @click="popUpSearchTakeOff()" class="search_menu-go">
+              <div @click="popUpDestTakeOff()" class="search_menu-go">
                 <div class="go-icon">
                   <font-awesome-icon :icon="['fas', 'plane-departure']" />
                 </div>
@@ -68,7 +105,7 @@ export default{
                     <h4>Thành phố khởi hành</h4>
                   </div>
                   <div class="go-info--city">
-                    <p>Thành phố Hồ Chí Minh - Viêt</p>
+                    <p >{{ CityFrom }}</p>
                   </div>
                 </div>
               </div>
@@ -88,7 +125,7 @@ export default{
                     <h4>Arrival city</h4>
                   </div>
                   <div class="to-info--city">
-                    <p>Abu Dhabi - UAE</p>
+                    <p>{{ CityTo }}</p>
                   </div>
                 </div>
               </div>
@@ -102,7 +139,7 @@ export default{
                   <h4>Depature - Arrival</h4>
                 </div>
                 <div class="calender-info--city">
-                  <p>28 Feb - 3 Mar</p>
+                  <p>{{ DateFlight.start }} - {{ DateFlight.end }}</p>
                 </div>
               </div>
             </div>
@@ -110,12 +147,12 @@ export default{
               <div class="passenger-icon">
                 <font-awesome-icon :icon="['fas', 'user-friends']" />
               </div>
-              <div class="passenger-info">
+              <div  class="passenger-info">
                 <div class="passenger-info--tittle">
                   <h4>Passenger</h4>
                 </div>
-                <div class="passenger-info--city">
-                  <p>1 Adult</p>
+                <div  class="passenger-info--city">
+                  <p>Hành khách</p>
                 </div>
               </div>
             </div>
@@ -129,15 +166,15 @@ export default{
                   <h4>Ticket type</h4>
                 </div>
                 <div class="ticket-info--city">
-                  <p>Economy</p>
+                  <p>{{ TicketType }}</p>
                 </div>
               </div>
             </div>
             <div class="search_menu-button">
-              <button>
+              <button @click="search()">
                 <div class="search_menu-button_warp">
                   <font-awesome-icon :icon="['fas', 'search']" />
-                  <span>Search</span>
+                  <span>Tìm kiếm</span>
                 </div>
               </button>
             </div>

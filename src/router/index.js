@@ -35,8 +35,8 @@ const router = createRouter({
       component: History
     },
     {
-      path: '/search/result',
-      name: 'Search result for "Cứng"',
+      path: '/search',
+      name: 'Search',
       component: SearchResult
     }
     

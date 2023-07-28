@@ -3,7 +3,12 @@ export default{
     methods: {
         hidePop(){
             this.$emit("close-popUp", false)
+        },
+        transferdata(tickeyType){
+            console.log(tickeyType)
+            this.$emit("callback-tiket", tickeyType)
         }
+
     }
 }
 </script>
@@ -16,12 +21,12 @@ export default{
                     <font-awesome-icon :icon="['fas', 'xmark']" />
                 </div>
             </div>
-            <div class="type">
+            <div @click="transferdata('Phổ thông')" class="type">
                 <font-awesome-icon :icon="['fas', 'ticket']" />                
-                <p>Phổ thông</p>
+                <p class="ticket-economy">Phổ thông</p>
                 <p><b>+0đ</b></p>
             </div>
-            <div class="type">
+            <div @click="transferdata('Thương gia')"  class="type">
                 <font-awesome-icon :icon="['fas', 'crown']" />
                 <p>Thương gia</p>
                 <p><b>+2.000.000đ</b></p>

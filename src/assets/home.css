@@ -118,3 +118,8 @@ body {
 .box-search{
     padding: 25px;
 }
+
+.search_menu-button button{
+    width: 9rem;
+    border: none;
+}

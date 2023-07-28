@@ -8,7 +8,8 @@ import SearchArrive from './components/ArriveComponent.vue'
 import Calender from './components/CalenderComponent.vue'
 import TicketType from './components/TicketTypeComponent.vue'
 import Adult from './components/AdultComponent.vue'
-import { faL } from '@fortawesome/free-solid-svg-icons'
+import { faL, fas } from '@fortawesome/free-solid-svg-icons'
+import { arrayRemove } from 'firebase/firestore'
 
 export default{
   components:{
@@ -32,27 +33,39 @@ export default{
       popupArrive: false,
       popUpCalender: false,
       popUpAdult: false,
-      popUpTicketType: false
+      popUpTicketType: false,
+      takeoff: "Nhập chuyến bay hiện tại",
+      arrive: "Nhập chuyến bay đến",
+      dateFlight: "00 Ngày - 0",
+      ticketType: "Loại vé",
+      quantityAdult: {}
     }
+  },
+  methods:{
+    
   }
 }
 </script>
 <template>
   <div id="app-main">
-    <TicketType @close-popUp="e => popUpTicketType = e" v-if="popUpTicketType" ></TicketType>
+    <TicketType @callback-tiket="e => {ticketType = e, popUpTicketType = false}" @close-popUp="e => popUpTicketType = e" v-if="popUpTicketType" ></TicketType>
 
-    <Adult @hide-adult="e => popUpAdult = e" v-if="popUpAdult"></Adult>
-    <Calender @hide-calender="e => popUpCalender = e"  v-if="popUpCalender" style="position: absolute;z-index: 5;"></Calender>
-    <SearchArrive @hide-arrive="e => popupArrive = e" v-if="popupArrive"></SearchArrive>
-    <SearchTakeOff  @hide-takeoff="e => popupTakeOff = e" v-if="popupTakeOff" ></SearchTakeOff>
+    <Adult @call-tohome="e => {quantityAdult = e, popUpAdult= false}" @hide-adult="e => popUpAdult = e" v-if="popUpAdult"></Adult>
+    
+    <Calender @date-to-flight="e => {dateFlight=e, popUpCalender = false}  " @hide-calender="e => popUpCalender = e"  v-if="popUpCalender" style="position: absolute;z-index: 5;"></Calender>
+
+    <SearchArrive @connect-arrive="e => { arrive = e ; popupArrive = false}" @hide-arrive="e => popupArrive = e" v-if="popupArrive"></SearchArrive>
+
+    <SearchTakeOff  @takeoff-connect="e => {takeoff = e; popupTakeOff = false}" @hide-takeoff="e => popupTakeOff = e" v-if="popupTakeOff" ></SearchTakeOff>
+
     <Register @signup-callback-close="e => dialogRegis = e" v-if="dialogRegis"></Register>
+
     <Login  @hide-button="e => isLogin = e" @login-callback-close="e => dialogLogin = e"  v-if="dialogLogin"></Login>
-    <div id="app-main_header">
+    <div id="app-main_header">  
       <Header :isLogin="isLogin" @signin-callback="e => dialogLogin = e" @signup-callback="e => dialogRegis = e"></Header>
     </div>
       <div id="app-main_body">
-
-        <RouterView @popUpTicket-callback="e => popUpTicketType = e" @popUpAdult-callback="e => popUpAdult = e"   @popCalender-callback="e => popUpCalender = e" @popArrive-callback="e => popupArrive = e" @popTakeOff-callback="e => popupTakeOff = e" ></RouterView>
+        <RouterView :QTTadult="quantityAdult" :TicketType="ticketType" :DateFlight="dateFlight"  :CityTo="arrive" @popDest-callback="e => {popupTakeOff = true}" :CityFrom="takeoff" @popUpTicket-callback="e => popUpTicketType = e" @popUpAdult-callback="e => popUpAdult = e"   @popCalender-callback="e => popUpCalender = e" @popArrive-callback="e => popupArrive = e" @popTakeOff-callback="e => popupTakeOff = e" ></RouterView>
       </div>
   </div>
 </template>
