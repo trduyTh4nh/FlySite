@@ -1,5 +1,12 @@
+<script>
+  export default{
+    mounted(){
+      var ticket = JSON.parse(this.$route.params.ticket)
+    }
+  }
+</script>
 <template>
-
+  
 </template>
 
 <style>
