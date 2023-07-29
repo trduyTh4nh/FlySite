@@ -700,10 +700,14 @@
 /* Admin */
 
 #admin{
-    gap: 10rem;
+    box-sizing: border-box;
+    width: 100%;
+    /* justify-content: space-between; */
+    gap: 3rem;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     padding-top: 10rem;
+    padding: 9rem 2rem 0 2rem;
 }
 .admin-wrap{
     display: flex;
@@ -730,13 +734,15 @@
 
 
 .flight-component{
+    box-sizing: border-box;
+    padding: 3rem 2rem;
     transition: ease 0.2s;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 3rem;
-    height: 8rem;
+    height: auto;
     align-items: center;
-    width: 45rem;
+    width: 100%;
     border-radius: 1rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
@@ -759,6 +765,8 @@
 .admin-list{
     display: flex;
     flex-direction: column;
+    flex: 1;
+    gap: 25px;
 }
 .component-input
 {
@@ -830,4 +838,8 @@
 .ticket-loaive select option{
     transition: ease 0.2s;
     width: 10rem;
+}
+.admin-flight, .ticket-add{
+    position: sticky;
+    top: 0;
 }
