@@ -1,6 +1,6 @@
 <script>
 
-import { addFlight, getAllFlight, addTicket } from '../helper'
+import { addFlight, getAllFlight, addTicket, deleteFlight } from '../helper'
 import FlightComponent from '../components/FlightComponent.vue'
 export default {
     components: {
@@ -83,10 +83,21 @@ export default {
                 }
             ).catch(e => {
                 alert("Add failed!")
-            })
+            }) 
 
-        }, refreshComponent() {
-            this.$forceUpdate()
+        }, removeFlight() {
+              ;
+            console.log(this.maCB)
+            if(this.maCB != null){
+                deleteFlight(this.maCB).then(e => {
+                    alert("Deleted")
+                }).catch(e=> {
+                    console.log(e)
+                })
+            }
+            else{
+                alert("Hãy chọn chuyến bay muốn xóa")
+            }
         }
 
 
@@ -135,9 +146,15 @@ export default {
                 </div>
 
             </div>
-            <div class="btnAdd">
-                <button @click="add(), refreshComponent()">Add flight</button>
+            <div class="wrap-button">
+                <div class="btnAdd">
+                    <button @click="add(), refreshComponent()">Add flight</button>
+                </div>
+                <div class="btnAdd">
+                    <button @click="removeFlight()">Delete flight</button>
+                </div>
             </div>
+
         </div>
 
 
@@ -208,8 +225,11 @@ export default {
                     </div>
                 </div>
             </div>
-            <div class="btnadd-ticket">
-                <button @click="addNewTicket()">Add ticket</button>
+            <div class="wrap-button">
+                <div class="btnadd-ticket">
+                    <button @click="addNewTicket()">Add ticket</button>
+                </div>
+
             </div>
         </div>
 
