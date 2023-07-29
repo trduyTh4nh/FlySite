@@ -52,6 +52,10 @@ export default {
             addFlight(flight).then(
                 e => {
                     alert("Add Success!")
+                    getAllFlight().then(e => {
+                        this.resultFlight = e
+                        console.log(e)
+                    })
                 }
             ).catch(e => {
                 console.log("Add Failed!")
