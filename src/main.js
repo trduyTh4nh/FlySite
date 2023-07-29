@@ -25,7 +25,8 @@ import { faUserFriends, faArrowRight, faCalendar, faTicket, faUser, faMagnifying
 import { VueFire } from 'vuefire'
 import VueTailwindDatepicker from 'vue-tailwind-datepicker'
 import { faC } from '@fortawesome/free-solid-svg-icons';
-
+import { faCalendarDays} from '@fortawesome/free-solid-svg-icons'
+library.add(faCalendarDays)
 library.add(faTicketAlt, faSearch, faEye, faLandmarkAlt, faXmark)
 library.add(faPhone, faCircleXmark, faArrowRightArrowLeft, faMinus, faPlus)
 library.add(faShield, faChild, faBabyCarriage)

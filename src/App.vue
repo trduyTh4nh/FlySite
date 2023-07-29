@@ -10,7 +10,7 @@ import TicketType from './components/TicketTypeComponent.vue'
 import Adult from './components/AdultComponent.vue'
 import { faL, fas } from '@fortawesome/free-solid-svg-icons'
 import { arrayRemove } from 'firebase/firestore'
-
+import { getUserCurrentByEmail } from './helper'
 export default{
   components:{
     Header,
@@ -39,11 +39,22 @@ export default{
       dateFlight: "00 Ngày - 0",
       ticketType: "Loại vé",
       quantityAdult: {},
-      userbox: false
+      userbox: false,
+      dynamic_email: "",
+      username: '',
+      usr: {}
     }
   },
   methods:{
-    
+      getInfo(){
+            console.log(this.dynamic_email + " new, old ")
+            getUserCurrentByEmail(this.dynamic_email).then(
+                e => {
+                    this.usr = e
+                    this.username = this.usr[0].TenKH
+                    console.log(this.username)
+                })
+    },
   }
 }
 </script>
@@ -63,9 +74,9 @@ export default{
 
     <Register @signup-callback-close="e => dialogRegis = e" v-if="dialogRegis"></Register>
 
-    <Login @show-user="e => userbox = e"  @hide-button="e => isLogin = e" @login-callback-close="e => dialogLogin = e"  v-if="dialogLogin"></Login>
+    <Login @email-transfer="e => {dynamic_email = e; getInfo()}" @show-user="e => userbox = e"  @hide-button="e => isLogin = e" @login-callback-close="e => dialogLogin = e"  v-if="dialogLogin"></Login>
     <div id="app-main_header">  
-      <Header :showUser="userbox"   :isLogin="isLogin" @signin-callback="e => dialogLogin = e" @signup-callback="e => dialogRegis = e"></Header>
+      <Header :DynamicEmail="username" :showUser="userbox"   :isLogin="isLogin" @signin-callback="e => dialogLogin = e" @signup-callback="e => dialogRegis = e"></Header>
     </div>
       <div id="app-main_body">
 

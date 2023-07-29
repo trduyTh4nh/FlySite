@@ -1,11 +1,36 @@
 <script>
 import { RouterLink } from 'vue-router'
+import { getUserCurrentByEmail } from '../helper'
 export default {
     props:{
         isLogin: Boolean,
         isUser: Boolean,
-        showUser: Boolean
+        showUser: Boolean,
+        DynamicEmail: String
     },
+    data(){
+        return {
+            usr: {},
+            ten,
+        }
+    },
+    // watch:{
+    //     DynamicEmail: function(newVal, oldVal){
+    //         console.log(newVal + " new, old " + oldVal)
+    //         getUserCurrentByEmail(newVal).then(
+    //             e => {
+    //                 this.usr = e
+    //                 this.ten = this.usr[0].TenKH
+    //                 console.log(this.ten)
+    //             }
+    //         )
+    //     }
+    // },
+    mounted(){
+    
+        
+    },
+
     components: {
         RouterLink
     },
@@ -20,8 +45,9 @@ export default {
             this.$emit("login-success", true)
         },
         check(){
-            console.log(this.showUser);
+            console.log(this.DynamicEmail);
         }
+        
     },
     data() {
         return {
@@ -60,8 +86,8 @@ export default {
                     <div class="imgwrap">
                         <img src="https://img.freepik.com/free-icon/user_318-563642.jpg?w=360">
                     </div>
-                    <div class="header-name-user">
-                        <span>Trần Duy Thanh</span>
+                    <div  class="header-name-user">
+                        <p>{{ DynamicEmail }}</p>
                     </div>
                 </div>
 
@@ -72,7 +98,6 @@ export default {
                     <button @click="openSignUp()" class="btn_sigup">
                         <p>Đăng ký</p>
                     </button>
-
                 </div>
 
             </div>

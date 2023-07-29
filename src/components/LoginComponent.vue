@@ -14,13 +14,14 @@ export default {
             checkvar(val.email, val.pass).then(
                 e => {
                     if(e){
+                        this.$emit("email-transfer", val.email)
                         this.$emit("show-user", true)
                         this.hideButton();
                         this.closeLogin();
                     }
                 }
             ).catch(e => {
-                console.log("Lỗi")
+                console.log("Lỗi" + e)
             })
         },
         hideButton() {
