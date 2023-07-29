@@ -53,7 +53,7 @@
             <div class="dest_arrival">
                 <div class="depart">
                     <div class="small_icon">
-                        <font-awesome-icon :icon="['far', 'calendar']" />
+                        <font-awesome-icon :icon="['fas', 'calendar-days']" />
                     </div>
                     <div>
                         <h3>Ngày đi</h3>
@@ -62,7 +62,7 @@
                 </div>
                 <div class="depart">
                     <div class="small_icon">
-                        <font-awesome-icon :icon="['far', 'calendar']" />
+                        <font-awesome-icon :icon="['fas', 'calendar-days']" />
                     </div>
                     <div>
                         <h3>Ngày về</h3>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="depart">
                     <div class="small_icon">
-                        <font-awesome-icon :icon="['far', 'user']" />
+                        <font-awesome-icon :icon="['fas', 'user']" />
                     </div>
                     <div>
                         <h3>Passengers</h3>
