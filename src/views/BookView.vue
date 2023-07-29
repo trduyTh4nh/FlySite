@@ -1,13 +1,21 @@
 <script >
 import Ticket from '../components/Ticket.vue';
 import Title from '../components/TitleComponent.vue'
+import {addHoaDon} from '../helper'
     export default{
+    props:[
+        "usr"
+    ],
     data(){
         return {
-            value: ''
+            value: '',
+            tick: JSON.parse(this.$route.params.ticket),
         }
     },
     components: { Ticket, Title },
+    mounted(){
+        
+    },
     methods:{
         checkCredits(){
             var v = this.value
@@ -20,6 +28,21 @@ import Title from '../components/TitleComponent.vue'
                 this.value = this.value + ' '
             }
             this.value = this.value.replace(new RegExp('[a-zA-z]+'),'')
+        },
+        thanhToan(){
+            var DonGia = this.tick.GiaVe
+            var email = this.usr[0].Email
+            const cthd = {
+                MaVe: this.tick.MaVe,
+                MaHD: "",
+                DonGia: DonGia,
+                SLHanhKhach: 1,
+                Email: email,
+                MaKH: "",
+                NgayLap: "",
+                TongTien: DonGia
+            }
+            addHoaDon(cthd)
         }
     }
 }
@@ -28,38 +51,38 @@ import Title from '../components/TitleComponent.vue'
     <Title></Title>
     <div class="book_wrapper">
         <h1 style="color: white">Thanh toán</h1>
-        <Ticket></Ticket>
+        <Ticket :ticket="tick" :bookButton="true"></Ticket>
         <div class="div_checkDetail">
             <div class="Cuss_bok">
                 <div class="div_Cuss">
                     <div class="payDel">
-                        <p class="text_payDel">Customer Info</p>
+                        <p class="text_payDel">Thông tin khách hàng</p>
                         <div class="del_inf">
                             <div class="del_inf1">
-                                <p class="headed_info">Full name</p>
-                                <p class="main_info">Tiêu Quang</p>
+                                <p class="headed_info">Họ tên</p>
+                                <p class="main_info">{{ usr[0].TenKH }}</p>
                             </div>
                             <div class="del_inf1">
                                 <p class="headed_info">ID</p>
-                                <p class="main_info">0828907967</p>
+                                <p class="main_info">{{ usr[0].CCCD }}</p>
                             </div>
                             <div class="del_inf1">
-                                <p class="headed_info">Passport</p>
-                                <p class="main_info">B123346</p>
+                                <p class="headed_info">Địa chỉ</p>
+                                <p class="main_info">{{ usr[0].DiaChi }}</p>
                             </div>
                             <div class="del_inf1">
-                                <p class="headed_info">DOB</p>
-                                <p class="main_info">02/09/2003</p>
+                                <p class="headed_info">SĐT</p>
+                                <p class="main_info">{{ usr[0].Email }}</p>
                             </div>
                             <div class="del_inf1">
                                 <p class="headed_info">Confirm ID</p>
-                                <button class="btn_uploag">
+                                <button class="outlined">
                                     <a class="text_uploag">Upload Picture</a>
                                 </button>
                             </div>
                             <div class="del_inf1">
                                 <p class="headed_info">Confirm Passport</p>
-                                <button class="btn_uploag">
+                                <button class="outlined">
                                     <a class="text_uploag">Upload Picture</a>
                                 </button>
                             </div>
@@ -68,33 +91,14 @@ import Title from '../components/TitleComponent.vue'
         
                     </div>  
                 </div>
-                <div class="div_book">
-                    <div class="bookdel">
-                        <p class="text_payDel">Booking info</p>
-                        <div class="del_inf">
-                            <div class="del_inf1">
-                                <p class="headed_info">Number of passengers</p>
-                                <p class="main_info">2 Adult - 1 Child</p>
-                            </div>
-                            <div class="del_inf1">
-                                <p class="headed_info">Departure time</p>
-                                <p class="main_info">23:45</p>
-                            </div>
-                            <div class="del_inf1">
-                                <p class="headed_info">Departure</p>
-                                <p class="main_info">Tan Son Nhat International Airport</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="payment_inf">
                 <div class="paym_inf">
-                    <p class="text_payDel">Payment info</p>
+                    <p class="text_payDel">Thông tin thanh toán</p>
                 </div>
                 <div class="sum_price">
-                    <p style="text-align: left; height: 30%;width:100%;font-size: 25px;font-weight: bold;">28.183.890 VND</p>
-                    <p style="text-align: left;">Total</p>
+                    <p style="text-align: left; height: 30%;width:100%;font-size: 25px;font-weight: bold;">{{ tick.GiaVe }} VND</p>
+                    <p style="text-align: left;">Thành tiền</p>
                 </div>
                 <div class="detal_payInf">
                     
@@ -114,8 +118,8 @@ import Title from '../components/TitleComponent.vue'
                     </div>
                 </div>
                 
-                <button class="btn_start_bok">
-                    <p href="paySuccess.html">Start booking</p>
+                <button class="btn_start_bok" @click="thanhToan()">
+                    <p href="paySuccess.html">Bắt đầu đặt vé</p>
                 </button>
                 
         
@@ -568,10 +572,11 @@ import Title from '../components/TitleComponent.vue'
 .btn_start_bok{
     height: 40px;
     width: 100%;
-    background-color: #4F95FF;
+    background-color: #4F95FF !important;
     border-radius: 10px;
-    border: 2px solid #ffffff;
-    color: white;
+    border: 2px solid #ffffff !important;
+    box-shadow: none !important;
+    color: white !important;
 }
 .book_wrapper{
     top: 13rem;
@@ -586,15 +591,15 @@ import Title from '../components/TitleComponent.vue'
     gap: 20px;
 }
 button{
-    transition: ease 0.2s;
-    display: flex;
-    padding: 8px 16px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    border: 1px solid #878787;
-    background-color: white;
+    transition: ease 0.2s !important;
+    display: flex !important;
+    padding: 8px 16px !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 10px !important;
+    border: 1px solid #878787 !important;
+    background-color: white !important;
 }
 button:active{
     transform: scale(95%);

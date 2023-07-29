@@ -42,7 +42,8 @@ export default{
       userbox: false,
       dynamic_email: "",
       username: '',
-      usr: {}
+      usr: {},
+      isLoggedIn: false
     }
   },
   methods:{
@@ -53,6 +54,7 @@ export default{
                     this.usr = e
                     this.username = this.usr[0].TenKH
                     console.log(this.username)
+                    this.isLoggedIn = true;
                 })
     },
   }
@@ -80,7 +82,7 @@ export default{
     </div>
       <div id="app-main_body">
 
-        <RouterView   :QTTadult="quantityAdult" :TicketType="ticketType" :DateFlight="dateFlight"  :CityTo="arrive" @popDest-callback="e => {popupTakeOff = true}" :CityFrom="takeoff" @popUpTicket-callback="e => popUpTicketType = e" @popUpAdult-callback="e => popUpAdult = e"   @popCalender-callback="e => popUpCalender = e" @popArrive-callback="e => popupArrive = e" @popTakeOff-callback="e => popupTakeOff = e" ></RouterView>
+        <RouterView :usr="usr" @signin-callback="e => dialogLogin = e" :isLoggedIn="isLoggedIn" :QTTadult="quantityAdult" :TicketType="ticketType" :DateFlight="dateFlight"  :CityTo="arrive" @popDest-callback="e => {popupTakeOff = true}" :CityFrom="takeoff" @popUpTicket-callback="e => popUpTicketType = e" @popUpAdult-callback="e => popUpAdult = e"   @popCalender-callback="e => popUpCalender = e" @popArrive-callback="e => popupArrive = e" @popTakeOff-callback="e => popupTakeOff = e" ></RouterView>
 
       </div>
   </div>

@@ -64,6 +64,7 @@ export async function getAllFlight() {
     for (var e of result) {
         kq.push(
             {
+                MaVe: e.MaVe,
                 DiemDen: e.DiemDen,
                 DiemDi: e.DiemDi,
                 MaChuyenBay: e.MaChuyenBay,
@@ -90,6 +91,7 @@ export async function getSearch(obj) {
     for (var e of res) {
         result.push(
             {
+                MaVe: e.MaVe,
                 GiaVe: e.GiaVe,
                 HangVe: e.HangVe,
                 NgayDi: e.NgayDi,
@@ -117,4 +119,38 @@ async function getFlightIdByQuery(obj) {
 export async function addTicket(ticket) {
     await addDoc(collection(db, 'VeBay'), ticket);
 }
-
+export async function getUserDoc(email){
+    const qr = query(collection(db, 'HanhKhach'), where("Email", "==", email));
+    const doc = await getDocs(qr);
+    var ids = []
+    doc.forEach(e => {
+        ids = e.id
+    })
+    return ids
+}
+export async function addHoaDon(hoadon){
+    const id = await getUserDoc(hoadon.Email)
+    var hd = hoadon
+    hd.MaKH = id
+    var date = new Date()
+    console.log(date.toDateString())
+    hd.NgayLap = date.toDateString()
+    console.log(hoadon)
+    var hdon = {
+        MaKH: id,
+        NgayLap: hd.NgayLap,
+        TongTien: hd.TongTien
+    }
+    var ref = await addDoc(collection(db, 'HoaDon'), hdon)
+    console.log(ref.id)
+    var refId = ref.id
+    hd.MaHD = refId
+    console.log(hoadon)
+    var cthd = {
+        DonGia: hd.DonGia,
+        MaHD: hd.MaHD,
+        MaVe: hd.MaVe,
+        SLHanhKhach: 1
+    }
+    await addDoc(collection(db, 'CTHD'), cthd)
+}

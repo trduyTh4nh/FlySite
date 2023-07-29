@@ -42,7 +42,7 @@
                 <h2>{{ ticket.GiaVe }} VND</h2>
                 <p>Mỗi hành khách</p>
             </div>
-            <button>Đặt ngay</button>
+            <button v-if="!bookButton" @click="$emit('book-event', ticket)">Đặt ngay</button>
         </div>
     </div>
 </template>

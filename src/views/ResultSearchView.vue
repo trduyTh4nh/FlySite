@@ -2,6 +2,9 @@
     import Ticket from '../components/Ticket.vue'
     import {getSearch} from '../helper'
     export default{
+        props: [
+            "isLoggedIn"
+        ],
         components: {
             Ticket,
     
@@ -20,7 +23,19 @@
         data(){
             return {
                 tickets: [],
-                result: JSON.parse(this.$route.query.q)
+                result: JSON.parse(this.$route.query.q),
+                loginNoti: true,
+            }
+        },
+        methods: {
+            startBooking(e){
+                if(this.isLoggedIn){
+                    var ticketString = JSON.stringify(e)
+                    console.log(ticketString)
+                    this.$router.push('/ticket/'+ticketString)
+                } else {
+                    alert("Bạn chưa đăng nhập.")
+                }
             }
         }
     }
@@ -96,10 +111,52 @@
         <img class="img_main" src="https://i.pinimg.com/originals/20/d9/c9/20d9c9ccfee8b5892a145199e458fc79.gif" />
     </div>
     <div class="card_wrapper">
-        <Ticket v-for="ticket in tickets" :ticket="ticket"/>
+        <div v-if="!isLoggedIn && loginNoti" class="not_logged_in">
+            <div class="not_logged_in_contain">
+                <div class="not_logged_in_left">
+                    <font-awesome-icon :icon="['fas', 'xmark']" />
+                </div>
+                <div class="not_logged_in_right">
+                    <h2>Bạn chưa đăng nhập!</h2>
+                    <p>Hãy đăng nhập để đặt vé, nhận hỗ trợ về vé và xem lịch sử đặt vé.</p>
+                </div>
+            </div>
+            <div class="not_logged_in_btn_login">
+                <button @click="$emit('signin-callback', true)">
+                    <p>Đăng nhập</p>
+                </button>
+                <button class="outlined" @click="loginNoti = false">
+                    <p>Đóng</p>
+                </button>
+            </div>
+        </div>
+        <Ticket @book-event="e => {startBooking(e)}" v-for="ticket in tickets" :ticket="ticket"/>
     </div>
 </template>
-<style scoped>
+<style scoped> 
+    .not_logged_in_btn_login{
+        display: flex;
+        gap: 25px;
+    }
+    .not_logged_in_contain{
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+    .not_logged_in{
+        box-shadow: 0 4px 14px #ffafaf;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 25px;
+        background-color: white;
+        padding: 25px;
+        border-radius: 16px;
+    }
+    .not_logged_in_left svg{
+        font-size: 34px;
+        color: #ffafaf;
+    }
     .btn_search{
         width: 50%;
         display: flex;

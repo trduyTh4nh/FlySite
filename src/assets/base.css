@@ -464,4 +464,13 @@
     button:active{
       transform: scale(95%);
     }
-    
+    .outlined{
+      background-color: transparent;
+      border: 1px black solid;
+      box-shadow: none;
+      color: black;
+    }
+    .outlined:hover{
+      background-color: black;
+      color: white;
+    }
