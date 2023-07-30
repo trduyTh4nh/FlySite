@@ -56,7 +56,6 @@ export async function deleteFlight(MaChuyenBay) {
         deleteDoc(doc.ref)
     })
 }
-
 export async function getUserCurrentByEmail(email) {
     const qr = query(collection(db, 'HanhKhach'), where("Email", "==", email));
     const snap = await getDocs(qr)
@@ -104,11 +103,12 @@ export async function getoldOrder(passengerID) {
 }
 
 export async function getSearch(obj) {
+    console.log(`Ngày đi: ${obj.dateFlight.start}, Ngày về: ${obj.dateFlight.end}`)
     const chuyenbay = await getFlightIdByQuery(obj);
     const idCB = chuyenbay[0].MaChuyenBay
     var result = []
     console.log(obj)
-    const q = query(collection(db, 'VeBay'), where("HangVe", "==", obj.type, "and", "NgayDi", "==", obj.dateFlight.start, "and", "NgayVe", "==", obj.dateFlight.end, "and", "ChuyenBay", "==", idCB))
+    const q = query(collection(db, 'VeBay'), where("HangVe", "==", obj.type),  where("NgayDi", "==", obj.dateFlight.start), where("NgayVe", "==", obj.dateFlight.end), where( "ChuyenBay", "==", idCB))
     const snap = await getDocs(q)
     var res = snap.docs.map(doc => doc.data())
     for (var e of res) {
@@ -227,6 +227,60 @@ export async function addHoaDon(hoadon) {
         SLHanhKhach: 1
     }
     await addDoc(collection(db, 'CTHD'), cthd)
+}
+export async function ifExistsOrder(email, mave){
+    var id = await getUserDoc(email)
+    const col = collection(db, 'HoaDon')
+    const q = query(col, where('MaKH', '==', id))
+    const hoadon = await getDocs(q)
+    var idHD = []
+    hoadon.forEach(e => {
+        idHD.push(e.id)
+    })
+    var el = false;
+    var exists;
+    for(var id of idHD){
+        const cthdcol = collection(db, 'CTHD')
+        const cthdq = query(cthdcol, where('MaHD', '==', id))
+        const cthdsnap = await getDocs(cthdq)
+        console.log(id)
+        cthdsnap.forEach(e => {
+            console.log(e.data())
+            exists = e.data().MaVe == mave
+            if(exists){
+                el = exists
+            }
+        })
+    }
+    console.log(el)
+    return el
+}
+export async function getTicketByIDCB(id, cb){
+    const q = query(collection(db, 'VeBay'), where('ChuyenBay', '==', id));
+    const doc = await getDocs(q)
+    const res = doc.docs.map(e => e.data())
+    var result = []
+    for (var e of res) {
+        result.push(
+            {
+                MaVe: e.MaVe,
+                GiaVe: e.GiaVe,
+                HangVe: e.HangVe,
+                NgayDi: e.NgayDi,
+                NgayVe: e.NgayVe,
+                cityFrom: cb.DiemDi,
+                cityTo: cb.DiemDen,
+                ThoiGianBay: cb.ThoiGianBay
+            }
+        )
+    }
+    return result
+}
+export async function ifExistInCTHD(mave){
+    const q = query(collection(db, 'CTHD'), where('MaVe', '==', mave))
+    const snap = await getDocs(q)
+    const res = snap.docs.map(e => e.data())
+    return res.length > 0
 }
 export async function getOrderbyIDOrder(idOrder){
     const docu = doc(db, 'HoaDon', idOrder)

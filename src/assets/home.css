@@ -18,6 +18,7 @@ h1{
 }
 .header{
     position: fixed;
+    
 }
 * {
     margin: 0;
@@ -31,6 +32,7 @@ body {
 
 #web {
     position: relative;
+    z-index: 20;
 }
 
 .header-container {

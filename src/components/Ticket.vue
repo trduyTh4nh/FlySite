@@ -1,10 +1,70 @@
 <script>
+    import {ifExistsOrder, ifExistInCTHD} from '../helper'
     export default{
         props:[
             "ticket",
-            "bookButton"
-        ]
-    }
+            "bookButton",
+            "usr"
+        ],
+        data(){
+            return {
+                isbooked: false,
+                message: 'Đặt vé'
+            }
+        },
+        watch: {
+            usr(){
+                    this.isbooked = true
+                    console.log(this.usr)
+                    ifExistsOrder(this.usr[0].Email, this.ticket.MaVe).then(
+                    e => {
+                        this.isbooked = e
+                        if(e){
+                                this.message = 'Đã đặt vé'
+                            } else
+                            ifExistInCTHD(this.ticket.MaVe).then(
+                                e => {
+                                    this.isbooked = e
+                                    this.message = !e ? this.message : 'Vẽ đã được đặt từ trước'
+                                }
+                            )
+                    }
+                )
+                
+            }
+        },
+        mounted(){
+            ifExistInCTHD(this.ticket.MaVe).then(
+                e => {
+                    this.isbooked = e
+                    this.message = !e ? this.message : 'Vẽ đã được đặt từ trước'
+                }
+            )
+            if(this.usr != undefined){
+                
+                if(Object.keys(this.usr).length != 0){
+                    this.isbooked = true
+                    ifExistsOrder(this.usr[0].Email, this.ticket.MaVe).then(
+                        e => {
+                            console.log(e)
+                            if(e){
+                                this.message = 'Đã đặt vé'
+                            } else
+                            ifExistInCTHD(this.ticket.MaVe).then(
+                                e => {
+                                    this.isbooked = e
+                                    this.message = !e ? this.message : 'Vẽ đã được đặt từ trước'
+                                }
+                            )
+
+                        }
+                    )
+                }
+                }
+            
+            }
+        }
+    
 </script>
 <template>
     <div class="ticket">
@@ -42,7 +102,7 @@
                 <h2>{{ ticket.GiaVe }} VND</h2>
                 <p>Mỗi hành khách</p>
             </div>
-            <button v-if="!bookButton" @click="$emit('book-event', ticket)">Đặt ngay</button>
+            <button :disabled="isbooked" v-if="!bookButton" @click="$emit('book-event', ticket)">{{ message }}</button>
         </div>
     </div>
 </template>
@@ -76,6 +136,7 @@
         flex: 1;
     }
     .ticket{
+        margin: 0 !important;
         width: 100%;
         box-sizing: border-box;
         background-color: white;
@@ -97,6 +158,7 @@
         width: 6rem;
     }
     .destination{
+        width: fit-content;
         padding: 5px 10px;
         background-color: #4F95FF;
         border-radius: 30px;

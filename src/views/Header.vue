@@ -72,10 +72,10 @@ export default {
                         <RouterLink to='/'>Trang chủ</RouterLink>
                     </div>
                     <div class="header-container_component--schedule">
-                        <RouterLink to='/schedule'>Lịch chuyến bay</RouterLink>
+                        <RouterLink to='/schedule'>Chuyến bay</RouterLink>
                     </div>
                     <div class="header-container_component--passenger">
-                        <RouterLink to='/passenger'>Hành khách</RouterLink>
+                        <RouterLink to='/passenger'>Về chúng tôi</RouterLink>
                     </div>
                     <div class="header-container_component--order">
                         <RouterLink to='/history'>Lịch sử đặt vé</RouterLink>
