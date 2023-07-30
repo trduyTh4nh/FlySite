@@ -1009,7 +1009,7 @@ a:hover{
 .ticket{
     margin-top: 4rem;
     width: 100%;
-    justify-content: space-between;
+    gap: 10rem;
     align-items: center;
 
     /* display: inline-block;
@@ -1052,11 +1052,12 @@ a:hover{
     padding: 5px;
 }
 .btn_tempGo{
-    width: 8rem;
+    width: 12rem;
     background-color: #0066FF;
     border-radius: 30px;
     appearance: none;
     border: 2px none #bababa;
+    box-shadow: none;
 }
 .text_temp{
     font-weight: bold;
@@ -1079,6 +1080,9 @@ a:hover{
     justify-content: center;
     width: 41rem;
     height: 1rem;
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     border-radius: 30px;
     background-color: white;
     align-items: center;
