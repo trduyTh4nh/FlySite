@@ -3,10 +3,18 @@
 import { addFlight, getAllFlight, addTicket, deleteFlight } from '../helper'
 import FlightComponent from '../components/FlightComponent.vue'
 export default {
+    props:[
+        "usr"
+    ],
     components: {
         FlightComponent
     },
     mounted() {
+        if(Object.keys(this.usr).length == 0){
+            this.$router.push('/forbidden')
+        } else if(this.usr[0].Email != 'admin@gmail.com'){
+                this.$router.push('/forbidden')
+            }
         getAllFlight().then(e => {
             this.resultFlight = e
             console.log(e)

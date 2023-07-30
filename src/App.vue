@@ -48,6 +48,9 @@ export default{
   },
   methods:{
       getInfo(){
+            if(this.dynamic_email == 'admin@gmail.com'){
+              this.$router.push('/admin')
+            }
             console.log(this.dynamic_email + " new, old ")
             getUserCurrentByEmail(this.dynamic_email).then(
                 e => {

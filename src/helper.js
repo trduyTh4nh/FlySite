@@ -43,7 +43,7 @@ export async function regis(user) {
 }
 
 export async function checkvar(email, pass) {
-    const q = query(collection(db, 'HanhKhach'), where("Email", "==", email, "and", "MatKhau", "==", pass));
+    const q = query(collection(db, 'HanhKhach'), where("Email", "==", email), where("MatKhau", "==", pass));
     const snap = await getDocs(q)
     var res = snap.docs.map(doc => doc.data())
     console.log(res)
