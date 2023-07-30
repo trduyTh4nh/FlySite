@@ -7,7 +7,8 @@ import SearchResult  from '../views/ResultSearchView.vue'
 import Book from '../views/BookView.vue'
 import Admin from '../views/AdminView.vue'
 import CompleteTicket from '../views/CompleteTicketView.vue'
-
+import NotAllowed from '../views/NotAllowedView.vue'
+import component from 'vue-tailwind-datepicker'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -57,6 +58,11 @@ const router = createRouter({
       path: '/book/complete/:ticket',
       name: 'Completed',
       component: CompleteTicket
+    },
+    {
+      path: '/forbidden',
+      name: 'Không có quyền',
+      component: NotAllowed
     }
     
   ]
