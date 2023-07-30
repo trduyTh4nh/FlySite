@@ -3,7 +3,8 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore, collection, getDocs, getDoc, query, where, doc, setDoc, addDoc, QuerySnapshot, CollectionReference } from 'firebase/firestore';
 import { async } from "@firebase/util";
-
+import {  deleteDoc } from "firebase/firestore";
+import { registerRuntimeCompiler } from "vue";
 const firebaseConfig = {
     apiKey: "AIzaSyDzcBSkNo1q1ZQwQ3usxN4XWwTKXg559aA",
     authDomain: "flysite-1a371.firebaseapp.com",
@@ -47,6 +48,13 @@ export async function checkvar(email, pass) {
     var res = snap.docs.map(doc => doc.data())
     console.log(res)
     return res.length > 0
+}
+export async function deleteFlight(MaChuyenBay){
+   const qr = query(collection(db, "ChuyenBay"), where("MaChuyenBay", "==", MaChuyenBay))
+   let q = await getDocs(qr)
+   q.forEach(doc => {
+    deleteDoc(doc.ref)
+   })
 }
 
 export async function getUserCurrentByEmail(email) {
