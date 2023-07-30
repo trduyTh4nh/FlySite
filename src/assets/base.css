@@ -470,6 +470,12 @@
       box-shadow: none;
       color: black;
     }
+    button:disabled,
+    button[disabled]{
+      cursor: not-allowed;
+      box-shadow: none !important;
+      background-color: #b2b2b2 !important;
+    }
     .outlined:hover{
       background-color: black;
       color: white;

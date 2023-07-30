@@ -3,7 +3,8 @@
     import {getSearch} from '../helper'
     export default{
         props: [
-            "isLoggedIn"
+            "isLoggedIn",
+            "usr"
         ],
         components: {
             Ticket,
@@ -32,6 +33,7 @@
                 if(this.isLoggedIn){
                     var ticketString = JSON.stringify(e)
                     console.log(ticketString)
+                    console.log(this.usr)
                     this.$router.push('/ticket/'+ticketString)
                 } else {
                     alert("Bạn chưa đăng nhập.")
@@ -130,7 +132,7 @@
                 </button>
             </div>
         </div>
-        <Ticket @book-event="e => {startBooking(e)}" v-for="ticket in tickets" :ticket="ticket"/>
+        <Ticket :usr="usr" @book-event="e => {startBooking(e)}" v-for="ticket in tickets" :ticket="ticket"/>
     </div>
 </template>
 <style scoped> 

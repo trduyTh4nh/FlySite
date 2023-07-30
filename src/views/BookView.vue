@@ -42,7 +42,9 @@ import {addHoaDon} from '../helper'
                 NgayLap: "",
                 TongTien: DonGia
             }
-            addHoaDon(cthd)
+            addHoaDon(cthd).then(e => {
+                this.$router.push('/book/complete/'+JSON.stringify(this.tick))
+            })
         }
     }
 }

@@ -1,10 +1,41 @@
 <script>
+    import {ifExistsOrder} from '../helper'
     export default{
         props:[
             "ticket",
-            "bookButton"
-        ]
-    }
+            "bookButton",
+            "usr"
+        ],
+        data(){
+            return {
+                isbooked: false,
+            }
+        },
+        watch: {
+            usr(){
+                    this.isbooked = true
+                    console.log(this.usr)
+                    ifExistsOrder(this.usr[0].Email, this.ticket.MaVe).then(
+                    e => {
+                        this.isbooked = e
+                    }
+                )
+                
+            }
+        },
+        mounted(){
+            if(this.usr != undefined){
+                if(Object.keys(this.usr).length != 0)
+                    ifExistsOrder(this.usr[0].Email, this.ticket.MaVe).then(
+                        e => {
+                            console.log(e)
+                            this.isbooked = e
+                        }
+                    )
+                }
+            }
+        }
+    
 </script>
 <template>
     <div class="ticket">
@@ -42,7 +73,7 @@
                 <h2>{{ ticket.GiaVe }} VND</h2>
                 <p>Mỗi hành khách</p>
             </div>
-            <button v-if="!bookButton" @click="$emit('book-event', ticket)">Đặt ngay</button>
+            <button :disabled="isbooked" v-if="!bookButton" @click="$emit('book-event', ticket)">Đặt ngay</button>
         </div>
     </div>
 </template>
