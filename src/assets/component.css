@@ -156,9 +156,7 @@
 }
 
 
-.signup-pass {
-
-}
+.signup-pass {}
 
 .signup-pass input {
     background-color: #f7f7f7;
@@ -177,9 +175,7 @@
     outline: 2px solid #f8a150;
 }
 
-.signup-repass {
-
-}
+.signup-repass {}
 
 .signup-repass input {
     background-color: #f7f7f7;
@@ -262,9 +258,7 @@
     justify-content: center;
 }
 
-.component-input {
-
-}
+.component-input {}
 
 
 .component-password {
@@ -424,15 +418,18 @@
     color: #faa150;
 }
 
-.type_wrapper{
+.type_wrapper {
     animation: pop-in ease 0.2s;
 }
+
 #signup {
     animation: pop-in ease 0.2s;
 }
-.adult{
+
+.adult {
     animation: pop-in ease 0.2s;
 }
+
 #login {
     animation: pop-in ease 0.2s;
 }
@@ -473,7 +470,7 @@
 }
 
 /* Adult */
-.adult{
+.adult {
     border-radius: 0.5rem;
     background-color: white;
 }
@@ -594,104 +591,119 @@
     font-weight: 600;
 }
 
-.adult-large_icon svg{
+.adult-large_icon svg {
 
     font-size: 1.4rem;
 }
 
-.adult-child_icon svg{
+.adult-child_icon svg {
 
     font-size: 1.4rem;
 }
 
-.adult-super-child_icon svg{
+.adult-super-child_icon svg {
 
     font-size: 1.4rem;
 }
-.adult-btnClose{
+
+.adult-btnClose {
     margin: 0.5rem 0.5rem 0 0;
     text-align: right;
 }
-.adult-btnClose svg{
+
+.adult-btnClose svg {
     font-size: 1.5rem;
 }
 
-.adult-btnClose svg{
+.adult-btnClose svg {
     cursor: pointer;
     transition: ease 0.2s;
     color: #f8a150;
 }
-.adult-btnClose svg:hover{
+
+.adult-btnClose svg:hover {
     color: rgb(255, 45, 97);
 }
 
-.adult-large_quantity svg:hover{
+.adult-large_quantity svg:hover {
     color: rgb(223, 123, 42);
     cursor: pointer;
 }
 
-.adult-child_quantity svg:hover{
+.adult-child_quantity svg:hover {
     color: rgb(223, 123, 42);
     cursor: pointer;
 }
-.adult-super-child_quantity svg:hover{
+
+.adult-super-child_quantity svg:hover {
     color: rgb(223, 123, 42);
     cursor: pointer;
 }
-.btn-calender{
+
+.btn-calender {
     margin-top: 1rem;
     width: 100%;
     text-align: center;
     margin-left: -15px;
 }
-.btn-calender button{
+
+.btn-calender button {
     width: 10rem;
 }
 
-.calender-info--city p{
+.calender-info--city p {
     font-size: 1.1rem;
 }
-.search_menu-passenger{
+
+.search_menu-passenger {
     width: 12.5rem;
 }
-.search_menu-ticket{
+
+.search_menu-ticket {
     width: 11rem;
 }
-.search_menu-calender{
+
+.search_menu-calender {
     width: 20rem;
 }
-.adult-wrap{
 
-}
-.btn-adult{
+.adult-wrap {}
+
+.btn-adult {
     margin-top: 1rem;
     width: 100%;
     text-align: center;
 }
-.btn-adult button{
+
+.btn-adult button {
     width: 10rem;
 }
-.adult-btnClose svg{
+
+.adult-btnClose svg {
     margin-top: 0.5rem;
 }
-.imgwrap img{
+
+.imgwrap img {
     width: 3rem;
 }
-.header-container_btnOption{
+
+.header-container_btnOption {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
-.header-name-user{
+
+.header-name-user {
     font-size: 1rem;
     font-weight: 600;
     color: rgb(180, 180, 180)
 }
 
-.search_menu-button button{
+.search_menu-button button {
     width: 8.5rem;
 }
-#admin{
+
+#admin {
     width: 100%;
     height: 100%;
 }
@@ -699,7 +711,7 @@
 
 /* Admin */
 
-#admin{
+#admin {
     box-sizing: border-box;
     width: 100%;
     /* justify-content: space-between; */
@@ -709,12 +721,14 @@
     padding-top: 10rem;
     padding: 9rem 2rem 0 2rem;
 }
-.admin-wrap{
+
+.admin-wrap {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
-.admin-wrap input{
+
+.admin-wrap input {
     font-weight: 600;
     transition: ease 0.2s;
     border-radius: 1rem;
@@ -727,13 +741,14 @@
     width: 20rem;
 }
 
-.header-container{
-    background: rgba(0,0,0,0.5);
+.header-container {
+    background: rgba(0, 0, 0, 0.5);
 }
+
 /* Flight insert by admin*/
 
 
-.flight-component{
+.flight-component {
     box-sizing: border-box;
     padding: 3rem 2rem;
     transition: ease 0.2s;
@@ -746,71 +761,83 @@
     border-radius: 1rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
-.flight-component:hover{
+
+.flight-component:hover {
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
-.flight-component p{
+.flight-component p {
     font-size: 18px;
     font-weight: 700;
     color: #e97100;
 }
-.flight-component input{
+
+.flight-component input {
     transform: scale(2);
 }
-.btnAdd{
+
+.btnAdd {
     text-align: center;
     margin-top: 1rem;
 }
-.admin-list{
+
+.admin-list {
     display: flex;
     flex-direction: column;
     flex: 1;
     margin-bottom: 3rem;
 }
-.component-input
-{
 
-}
-.component-data{
+.component-input {}
+
+.component-data {
     display: flex;
     gap: 3rem;
 }
-.admin-ticket{
+
+.admin-ticket {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
-.admin-ticket input{
+
+.admin-ticket input {
     padding-left: 1rem;
     margin-top: 0.5rem;
     height: 2rem;
 }
-.admin-ticket .ticket-tittle{
+
+.admin-ticket .ticket-tittle {
     font-size: 0.9rem;
     font-weight: 600;
 }
-.diemden-tittle{
+
+.diemden-tittle {
     font-size: 0.9rem;
     font-weight: 600;
 }
-.diemdi-tittle{
+
+.diemdi-tittle {
     font-size: 0.9rem;
     font-weight: 600;
 }
-.macb-tittle{
+
+.macb-tittle {
     font-size: 0.9rem;
     font-weight: 600;
 }
-.time-tittle{
+
+.time-tittle {
     font-size: 0.9rem;
     font-weight: 600;
 }
-.btnadd-ticket{
+
+.btnadd-ticket {
     margin-top: 0.5rem;
     text-align: center;
 }
-.ticketadd input{
+
+.ticketadd input {
     font-weight: 600;
     transition: ease 0.2s;
     border-radius: 1rem;
@@ -822,7 +849,8 @@
     height: 3rem;
     width: 20rem;
 }
-.ticket-loaive select{
+
+.ticket-loaive select {
     font-weight: 600;
     border-radius: 0.4rem;
     margin-top: 0.5rem;
@@ -835,15 +863,19 @@
     text-align: center;
     width: 10rem;
 }
-.ticket-loaive select option{
+
+.ticket-loaive select option {
     transition: ease 0.2s;
     width: 10rem;
 }
-.admin-flight, .ticket-add{
+
+.admin-flight,
+.ticket-add {
     position: sticky;
     top: 0;
 }
-.wrap-button{
+
+.wrap-button {
     align-items: center;
     gap: 2rem;
     justify-content: center;
@@ -853,61 +885,68 @@
 /* Ticket history */
 
 
-.div_mainTop{
+.div_mainTop {
     position: relative;
     width: 100%;
     height: 350px;
     display: flex;
 
-    
+
 }
-#imgTop{
+
+#imgTop {
     position: absolute;
     width: 100%;
     height: 350px;
 }
+
 /* .img_mainTop{
     width: 100%;
     height: 350px;
     border-radius: 48px;
 
 } */
-.cover_opacity{
+.cover_opacity {
     position: absolute;
     width: 100%;
     height: 350px;
-    background-color:black;
+    background-color: black;
     opacity: 0.5;
     border-radius: 0 0 48px 48px;
 }
-.div_navhead{
+
+.div_navhead {
     height: 20%;
-    width:100%;
+    width: 100%;
     position: absolute;
     display: flex;
     margin-top: 20px;
     justify-content: space-between;
     box-sizing: border-box;
 }
+
 .header-container {
     width: 100%;
     align-items: center;
     display: flex;
     justify-content: space-between;
 }
-.header-container_component{
+
+.header-container_component {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
 }
-.header-container_logo img{
+
+.header-container_logo img {
     width: 100px;
     margin: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .header-container_component a {
     transition: linear 0.1s;
     font-weight: 600;
@@ -915,23 +954,27 @@
     margin: 10px 50px 10px 50px;
     font-size: 16px;
     color: white;
-    
+
 }
-a:hover{
+
+a:hover {
     color: red;
 }
-.header-container_btnOption{
+
+.header-container_btnOption {
     display: flex;
     margin: 10px 0px 10px 0px;
     flex-wrap: wrap;
 }
-.btn_sigin{
+
+.btn_sigin {
     margin-left: 10px;
-    margin-right:10px;
+    margin-right: 10px;
     margin-top: 10px;
 
 }
-.btn_sigin input{   
+
+.btn_sigin input {
     font-weight: 600;
     transition: linear 0.2s;
     width: 110px;
@@ -939,10 +982,11 @@ a:hover{
     border: 1px solid white;
     border-radius: 10px;
     color: white;
-    background-color:transparent;
+    background-color: transparent;
 
 }
-.btn_sigin input:hover{
+
+.btn_sigin input:hover {
     background-color: white;
     border: 1px solid black;
     color: black;
@@ -953,14 +997,16 @@ a:hover{
     margin-right: 10px;
     margin-top: 10px;
 }
+
 .btn_sigup input {
     font-weight: 600;
     transition: linear 0.2s;
-    background-color:#F9A150;
+    background-color: #F9A150;
     width: 110px;
     height: 40px;
     border-radius: 10px;
 }
+
 .btn_sigup input:hover {
     color: white;
     background-color: transparent;
@@ -968,37 +1014,41 @@ a:hover{
     color: white;
     background-size: cover
 }
-.text_title{
+
+.text_title {
     font-size: 35px;
-    font-weight: bold; 
-    color: #ffffff; 
-    position:absolute;
+    font-weight: bold;
+    color: #ffffff;
+    position: absolute;
     margin-left: 2%;
     margin-top: -15%;
 
 }
-.text_mini{
+
+.text_mini {
     font-weight: bold;
     margin: 1px;
-    color:#ffffff;
+    color: #ffffff;
     padding: 2px;
     font-size: 12px;
 }
 
-.body_main{
+.body_main {
     position: absolute;
     height: 100%;
     width: 100%;
     margin-top: -35px;
-    
-}
-.div_ticket{
-    margin-left: 7.4%;
-    height: auto;
-    margin-bottom: 5%;  
 
 }
-.gr_ticket{
+
+.div_ticket {
+    margin-left: 7.4%;
+    height: auto;
+    margin-bottom: 5%;
+
+}
+
+.gr_ticket {
     height: auto;
     width: 80%;
     box-shadow: -2px 1px 13px 0px #9e9e9e;
@@ -1006,7 +1056,8 @@ a:hover{
     border-radius: 16px;
     padding: 0px 30px;
 }
-.ticket{
+
+.ticket {
     margin-top: 4rem;
     width: 100%;
     gap: 10rem;
@@ -1014,44 +1065,51 @@ a:hover{
 
     /* display: inline-block;
     vertical-align: middle; */
-    display: -webkit-flex; 
+    display: -webkit-flex;
     display: flex;
     align-items: center;
-    
+
 }
-.img_ticket{
+
+.img_ticket {
     width: 5rem;
 }
-.line{
+
+.line {
     height: 50%;
     width: 1px;
-    margin: 5% ;
+    margin: 5%;
 }
-.in_ticket{
+
+.in_ticket {
 
     /* background-color: #F9A150; */
     height: 65%;
     width: 65%;
-    
+
 }
-.in_in_ticket{
+
+.in_in_ticket {
     justify-content: space-between;
     align-items: center;
     width: 100%;
     display: flex;
-    
+
 }
-.time_temp{
+
+.time_temp {
     font-size: 20px;
 }
-.day_go{
+
+.day_go {
     text-align: center;
     display: flex;
     gap: 0.5rem;
     flex-direction: column;
     padding: 5px;
 }
-.btn_tempGo{
+
+.btn_tempGo {
     width: 12rem;
     background-color: #0066FF;
     border-radius: 30px;
@@ -1059,7 +1117,8 @@ a:hover{
     border: 2px none #bababa;
     box-shadow: none;
 }
-.text_temp{
+
+.text_temp {
     font-weight: bold;
     margin: 1px;
     color: #595959;
@@ -1067,12 +1126,13 @@ a:hover{
     font-size: 12px;
 }
 
-.text_lv{
+.text_lv {
     color: #ffffff;
     font-weight: bold;
     padding: 3px;
 }
-.time_fly{
+
+.time_fly {
     /* width: 50%; */
     /* background-color: #ffffff; */
     /* margin: 7%; */
@@ -1088,7 +1148,8 @@ a:hover{
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-.del_inf0{
+
+.del_inf0 {
     justify-content: center;
     height: 100%;
     align-items: center;
@@ -1096,32 +1157,35 @@ a:hover{
     display: flex;
 }
 
-.time_during{
+.time_during {
     font-size: 15px;
     margin: 1px;
-  
+
 }
-.icon_fly{
-    height : 70%;
-    width : 9% ; 
+
+.icon_fly {
+    height: 70%;
+    width: 9%;
     padding: 3px;
 }
-.list_btn{
+
+.list_btn {
     background-color: #ffffff;
     border: 2px none #bababa;
     box-shadow:
-    0 0 2px 2px #FF6347,
-    0 0 2px 2px #FFDAB9,
-    2px 0 2px 2px #B0E0E6;
+        0 0 2px 2px #FF6347,
+        0 0 2px 2px #FFDAB9,
+        2px 0 2px 2px #B0E0E6;
     border-radius: 30px;
     margin: 2%;
 }
-.text_btn{
+
+.text_btn {
     padding: 4px;
     font-weight: bold;
 }
 
-.ticket_del{
+.ticket_del {
     height: auto;
     width: 100%;
     display: flex;
@@ -1129,12 +1193,14 @@ a:hover{
     align-items: center;
     gap: 20px;
     padding-bottom: 15px;
-} 
-.img_QR{
+}
+
+.img_QR {
     width: 70px;
     height: auto;
 }
-.bk_prep{
+
+.bk_prep {
     justify-content: center;
     align-items: center;
     display: flex;
@@ -1144,15 +1210,17 @@ a:hover{
     border-radius: 28px;
     margin: 10px;
 }
-.text_prep{
+
+.text_prep {
     font-size: 15px;
     font-weight: bold;
     text-align: center;
     margin-top: 2%;
     color: #ffffff;
-    
+
 }
-.btn_Seetk{
+
+.btn_Seetk {
     height: 40px;
     width: auto;
     background-color: #33CCFF;
@@ -1164,22 +1232,26 @@ a:hover{
     color: #ffffff;
     padding: 5px;
 }
-.text_Seetk{
+
+.text_Seetk {
     font-size: 13px;
 }
-.headed_inf{
+
+.headed_inf {
     font-size: 15px;
 }
-.main_inf{
+
+.main_inf {
     font-size: 23px;
     font-weight: bold;
 }
-.main_inf1{
+
+.main_inf1 {
     font-size: 18px;
     font-weight: bold;
 }
 
-.div_price{
+.div_price {
     position: relative;
     margin-right: 0%;
     /* background-color: #888888; */
@@ -1189,14 +1261,15 @@ a:hover{
 
 
 
-.div_Cuss{
+.div_Cuss {
     margin-left: 7.4%;
     height: auto;
-    margin-bottom: 5%;  
+    margin-bottom: 5%;
 }
-.payDel{
+
+.payDel {
     width: 80%;
-    height: 100% ;  
+    height: 100%;
     background-color: #ffffff;
     border-radius: 16px;
     padding: 10px 30px;
@@ -1204,12 +1277,13 @@ a:hover{
     vertical-align: middle; */
     box-shadow: -2px 1px 13px 0px #9e9e9e;
 }
-.text_payDel{
+
+.text_payDel {
     font-size: 30px;
     font-weight: bold;
 }
 
-.del_inf{
+.del_inf {
     height: 30%;
     width: 100%;
     margin-top: 1%;
@@ -1217,28 +1291,30 @@ a:hover{
     gap: 40px;
 }
 
-.headed_inf{
+.headed_inf {
     font-size: 15px;
 }
 
-.btn_uploag{
+.btn_uploag {
     border-radius: 5px;
     border: 2px solid #b0b0b0;
 }
 
 
-.text_payDel{
+.text_payDel {
     font-size: 30px;
     font-weight: bold;
 }
-.div_book{
+
+.div_book {
     margin-left: 7.4%;
     height: auto;
-    margin-bottom: 5%;  
+    margin-bottom: 5%;
 }
-.bookdel{
+
+.bookdel {
     width: 80%;
-    height: 100% ;  
+    height: 100%;
     background-color: #ffffff;
     border-radius: 16px;
     padding: 10px 30px;
@@ -1247,7 +1323,86 @@ a:hover{
     box-shadow: -2px 1px 13px 0px #9e9e9e;
 }
 
+.about-me {
+    position: relative;
+    width: 100%;
+}
 
+.about-me img {
+    object-fit: cover;
+    object-position: 0rem -6rem;
+    width: 100%;
+}
 
+.content-tittle {
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    font-size: 6rem;
+    margin-top: -3.8rem;
+    color: #F9A150;
+    text-align: center;
+    text-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.55);
+    font-family: Inter;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    mix-blend-mode: exclusion;
+    backdrop-filter: blur(4.5px);
+}
 
+.about-content-hello {
+    padding: 6rem;
+    margin-top: 2rem;
+    color: #FF8E3D;
+    text-align: center;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
 
+.about-content-v1 {
+
+    width: 100%;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: -2rem;
+}
+.about-content-v1-child{
+color: #2D9AFF;
+text-align: center;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+margin-top: 2.5rem;
+padding-left: 6rem;
+padding-right: 6rem;
+}
+.img-about{
+    margin-top: 4rem;
+    width: 30rem;
+}
+.about-content-v1-child-end{
+    color: #2D9AFF;
+text-align: center;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+margin-top: 2.5rem;
+padding-left: 4rem;
+padding-right: 4rem;
+margin-bottom: 6rem;
+}

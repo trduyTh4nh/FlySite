@@ -40,7 +40,7 @@
     box-sizing: border-box;
     position: absolute;
     z-index: 2;
-    padding: 0 6rem;
+    padding: 0 6rem !important;
     margin-top: -2rem;
     display: flex;
     flex-direction: column;
