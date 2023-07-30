@@ -110,16 +110,11 @@ export default {
 
 
     }
-
-
-
 }
 
 </script>
 <template>
     <div id="admin">
-
-
         <div class="admin-flight">
 
             <div class="admin-wrap">
@@ -143,8 +138,6 @@ export default {
                         <input v-model="idflight" type="text" placeholder="">
                     </div>
                 </div>
-
-
 
                 <div class="wrap-time">
                     <div class="time-tittle">Thời gian bay</div>

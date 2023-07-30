@@ -85,7 +85,7 @@ export default{
     </div>
       <div id="app-main_body">
 
-        <RouterView :usr="usr" @signin-callback="e => dialogLogin = e" :isLoggedIn="isLoggedIn" :QTTadult="quantityAdult" :TicketType="ticketType" :DateFlight="dateFlight"  :CityTo="arrive" @popDest-callback="e => {popupTakeOff = true}" :CityFrom="takeoff" @popUpTicket-callback="e => popUpTicketType = e" @popUpAdult-callback="e => popUpAdult = e"   @popCalender-callback="e => popUpCalender = e" @popArrive-callback="e => popupArrive = e" @popTakeOff-callback="e => popupTakeOff = e" ></RouterView>
+        <RouterView :EmailDynamic="dynamic_email" :usr="usr" @signin-callback="e => dialogLogin = e" :isLoggedIn="isLoggedIn" :QTTadult="quantityAdult" :TicketType="ticketType" :DateFlight="dateFlight"  :CityTo="arrive" @popDest-callback="e => {popupTakeOff = true}" :CityFrom="takeoff" @popUpTicket-callback="e => popUpTicketType = e" @popUpAdult-callback="e => popUpAdult = e"   @popCalender-callback="e => popUpCalender = e" @popArrive-callback="e => popupArrive = e" @popTakeOff-callback="e => popupTakeOff = e" ></RouterView>
 
       </div>
   </div>
