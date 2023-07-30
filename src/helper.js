@@ -56,7 +56,6 @@ export async function deleteFlight(MaChuyenBay){
     deleteDoc(doc.ref)
    })
 }
-
 export async function getUserCurrentByEmail(email) {
     const qr = query(collection(db, 'HanhKhach'), where("Email", "==", email));
     const snap = await getDocs(qr)
@@ -178,18 +177,42 @@ export async function ifExistsOrder(email, mave){
         const cthdcol = collection(db, 'CTHD')
         const cthdq = query(cthdcol, where('MaHD', '==', id))
         const cthdsnap = await getDocs(cthdq)
-
-
         console.log(id)
         cthdsnap.forEach(e => {
             console.log(e.data())
             exists = e.data().MaVe == mave
             if(exists){
                 el = exists
-                console.log(e)
             }
         })
     }
     console.log(el)
     return el
+}
+export async function getTicketByIDCB(id, cb){
+    const q = query(collection(db, 'VeBay'), where('ChuyenBay', '==', id));
+    const doc = await getDocs(q)
+    const res = doc.docs.map(e => e.data())
+    var result = []
+    for (var e of res) {
+        result.push(
+            {
+                MaVe: e.MaVe,
+                GiaVe: e.GiaVe,
+                HangVe: e.HangVe,
+                NgayDi: e.NgayDi,
+                NgayVe: e.NgayVe,
+                cityFrom: cb.DiemDi,
+                cityTo: cb.DiemDen,
+                ThoiGianBay: cb.ThoiGianBay
+            }
+        )
+    }
+    return result
+}
+export async function ifExistInCTHD(mave){
+    const q = query(collection(db, 'CTHD'), where('MaVe', '==', mave))
+    const snap = await getDocs(q)
+    const res = snap.docs.map(e => e.data())
+    return res.length > 0
 }
