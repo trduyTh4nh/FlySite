@@ -107,6 +107,7 @@
         flex: 1;
     }
     .ticket{
+        margin: 0 !important;
         width: 100%;
         box-sizing: border-box;
         background-color: white;
