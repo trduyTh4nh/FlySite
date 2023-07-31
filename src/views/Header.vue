@@ -46,6 +46,9 @@ export default {
         },
         check(){
             console.log(this.DynamicEmail);
+        },
+        openWindow(){
+            this.$emit("open-window", true)
         }
         
     },
@@ -83,7 +86,7 @@ export default {
                 </div>
 
                 <div  v-if="isUser = showUser" class="header-container_btnOption">
-                    <div class="imgwrap">
+                    <div @click="openWindow()" class="imgwrap">
                         <img src="https://img.freepik.com/free-icon/user_318-563642.jpg?w=360">
                     </div>
                     <div  class="header-name-user">
