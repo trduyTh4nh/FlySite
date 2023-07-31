@@ -62,6 +62,9 @@ export default{
       }
       var stringQuery = JSON.stringify(query)
       this.$router.push({name: "Search", query:{q: stringQuery}})
+    },
+    reverse(){
+        this.$emit("call-reverse")
     }
 
   },
@@ -115,7 +118,7 @@ export default{
               </div>
 
               <div class="search_menu-btnreverse">
-                <button>
+                <button @click="reverse()">
                   <font-awesome-icon :icon="['fas', 'arrow-right-arrow-left']" />
                 </button>
               </div>

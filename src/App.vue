@@ -11,6 +11,7 @@ import Adult from './components/AdultComponent.vue'
 import { faL, fas } from '@fortawesome/free-solid-svg-icons'
 import { arrayRemove } from 'firebase/firestore'
 import { getUserCurrentByEmail } from './helper'
+import inFoUser from './components/InfoUserComponent.vue'
 export default{
   components:{
     Header,
@@ -22,7 +23,8 @@ export default{
     SearchArrive,
     Calender,
     TicketType,
-    Adult
+    Adult,
+    inFoUser
   },
   data(){
     return {
@@ -34,8 +36,8 @@ export default{
       popUpCalender: false,
       popUpAdult: false,
       popUpTicketType: false,
-      takeoff: "Nhập chuyến bay đi",
-      arrive: "Nhập chuyến bay đến",
+      takeoff: "Chuyến bay đi",
+      arrive: "Chuyến bay đến",
       dateFlight: "00 Ngày - 0",
       ticketType: "Loại vé",
       quantityAdult: {},
@@ -43,7 +45,8 @@ export default{
       dynamic_email: "",
       username: '',
       usr: {},
-      isLoggedIn: false
+      isLoggedIn: false,
+      popUpInfo: false
     }
   },
   methods:{
@@ -61,33 +64,36 @@ export default{
                     console.log(this.dynamic_email + " new, old ")
                 })
     },
+    swap(){
+      var c;
+      c = this.arrive
+      this.arrive = this.takeoff
+      this.takeoff = c
+    },
+    logout(){
+      this.usr = {}
+      this.isLogin = true;
+      this.userbox = false
+      this.popUpInfo = false
+    }
   }
 }
 </script>
 <template>
   <div id="app-main">
-
+    <inFoUser @logout="() => {logout()}" :usr="usr" @call-to-close="e => popUpInfo = e" v-if="popUpInfo"></inFoUser>
     <TicketType @callback-tiket="e => {ticketType = e, popUpTicketType = false}" @close-popUp="e => popUpTicketType = e" v-if="popUpTicketType" ></TicketType>
-
     <Adult @call-tohome="e => {quantityAdult = e, popUpAdult= false}" @hide-adult="e => popUpAdult = e" v-if="popUpAdult"></Adult>
-    
     <Calender @date-to-flight="e => {dateFlight=e, popUpCalender = false}  " @hide-calender="e => popUpCalender = e"  v-if="popUpCalender" style="position: absolute;z-index: 5;"></Calender>
-
     <SearchArrive @connect-arrive="e => { arrive = e ; popupArrive = false}" @hide-arrive="e => popupArrive = e" v-if="popupArrive"></SearchArrive>
-
     <SearchTakeOff  @takeoff-connect="e => {takeoff = e; popupTakeOff = false}" @hide-takeoff="e => popupTakeOff = e" v-if="popupTakeOff" ></SearchTakeOff>
-
-
     <Register @signup-callback-close="e => dialogRegis = e" v-if="dialogRegis"></Register>
-
     <Login @email-transfer="e => {dynamic_email = e; getInfo()}" @show-user="e => userbox = e"  @hide-button="e => isLogin = e" @login-callback-close="e => dialogLogin = e"  v-if="dialogLogin"></Login>
     <div id="app-main_header">  
-      <Header :DynamicEmail="username" :showUser="userbox"   :isLogin="isLogin" @signin-callback="e => dialogLogin = e" @signup-callback="e => dialogRegis = e"></Header>
+      <Header @open-window="e => popUpInfo = e" :DynamicEmail="username" :showUser="userbox"   :isLogin="isLogin" @signin-callback="e => dialogLogin = e" @signup-callback="e => dialogRegis = e"></Header>
     </div>
       <div id="app-main_body">
-
-        <RouterView :EmailDynamic="dynamic_email" :usr="usr" @signin-callback="e => dialogLogin = e" :isLoggedIn="isLoggedIn" :QTTadult="quantityAdult" :TicketType="ticketType" :DateFlight="dateFlight"  :CityTo="arrive" @popDest-callback="e => {popupTakeOff = true}" :CityFrom="takeoff" @popUpTicket-callback="e => popUpTicketType = e" @popUpAdult-callback="e => popUpAdult = e"   @popCalender-callback="e => popUpCalender = e" @popArrive-callback="e => popupArrive = e" @popTakeOff-callback="e => popupTakeOff = e" ></RouterView>
-
+        <RouterView @call-reverse="() => {swap()}" :EmailDynamic="dynamic_email" :usr="usr" @signin-callback="e => dialogLogin = e" :isLoggedIn="isLoggedIn" :QTTadult="quantityAdult" :TicketType="ticketType" :DateFlight="dateFlight"  :CityTo="arrive" @popDest-callback="e => {popupTakeOff = true}" :CityFrom="takeoff" @popUpTicket-callback="e => popUpTicketType = e" @popUpAdult-callback="e => popUpAdult = e"   @popCalender-callback="e => popUpCalender = e" @popArrive-callback="e => popupArrive = e" @popTakeOff-callback="e => popupTakeOff = e" ></RouterView>
       </div>
   </div>
 </template>
