@@ -48,16 +48,17 @@ export default{
   },
   methods:{
       getInfo(){
-            if(this.dynamic_email == 'admin@gmail.com'){
-              this.$router.push('/admin')
-            }
-            console.log(this.dynamic_email + " new, old ")
+            
             getUserCurrentByEmail(this.dynamic_email).then(
                 e => {
                     this.usr = e
                     this.username = this.usr[0].TenKH
                     console.log(this.username)
                     this.isLoggedIn = true;
+                    if(this.dynamic_email == 'admin@gmail.com'){
+                      this.$router.push('/admin/listcb')
+                    }
+                    console.log(this.dynamic_email + " new, old ")
                 })
     },
   }

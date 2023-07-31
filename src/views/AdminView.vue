@@ -10,6 +10,7 @@ export default {
         FlightComponent
     },
     mounted() {
+        console.log(this.usr)
         if(Object.keys(this.usr).length == 0){
             this.$router.push('/forbidden')
         } else if(this.usr[0].Email != 'admin@gmail.com'){
