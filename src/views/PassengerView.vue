@@ -67,7 +67,10 @@ export default {
             Bất kể lúc nào bạn cần giúp đỡ hoặc có thắc mắc, đội ngũ hỗ trợ của chúng tôi luôn sẵn sàng giúp đỡ qua điện
             thoại hoặc email
         </div>
-
+        
+        <div class="about-content-v1-child-end">
+            <img src="../assets/Logo.svg"/>
+        </div>
 
 
 
@@ -75,3 +78,10 @@ export default {
 
 
 </div></template>
+<style>
+    .about-content-v1-child-end img{
+        height: 512px;
+        width: auto;
+        filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.555));
+    }
+</style>

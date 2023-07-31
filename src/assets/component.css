@@ -1439,7 +1439,7 @@ a:hover {
     margin-right: 3rem;
     position: absolute;
     z-index: 22;
-    width: 20rem;
+    min-width: 20rem;
     height: 20rem;
     background-color: #fff;
 }
@@ -1499,6 +1499,7 @@ a:hover {
     margin-left: 2rem;
 }
 .info-email-content{
+    margin-right: 25px;
     color: #2D9AFF;
     font-size: 1.3rem;
 }
