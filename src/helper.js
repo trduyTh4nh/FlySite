@@ -287,5 +287,65 @@ export async function getOrderbyIDOrder(idOrder){
     const d = await getDoc(docu)
     return d.data()
 }
+export async function getSumEverything(){
+    const col = collection(db,'HoaDon')
+    const doc = await getDocs(col)
+    var sumMoney = 0;
+    var sumPurchase = 0;
+    doc.forEach(e => {
+        sumMoney+=Number(e.data().TongTien)
+        sumPurchase++;
+    })
+    sumMoney = numberWithCommas(sumMoney)
+    const colKH = collection(db, 'HanhKhach')
+    const docu = await getDocs(colKH)
+    var sumKH = 0;
+    docu.forEach(e => {
+        sumKH++
+    })
+    console.log(`tổng tiền: ${sumMoney}, tổng mua: ${sumPurchase}, tổng KH: ${sumKH}`)
+    return {
+        sumMoney: sumMoney,
+        sumPurchase: sumPurchase,
+        sumKH: sumKH
+    }
+}
+function numberWithCommas(x) {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+    while (pattern.test(x))
+        x = x.replace(pattern, "$1.$2");
+    return x;
+}
+export async function getAllHoaDon(){
+    const col = collection(db, 'HoaDon')
+    const doc = await getDocs(col)
+    const list = doc.docs.map(e => e.data())
+    const ids = doc.docs.map(e => e.id)
+    var tenKH;
+    var maHD;
+    var tongTien;
+    var hdList = [];
+    for(var l in list){
+        var usr = await getKH(list[l].MaKH)
+        tenKH = usr.TenKH
+        maHD = ids[l]
+        tongTien = list[l].TongTien
+        hdList.push(
+            {
+                stt: l,
+                tenKH: tenKH,
+                maHD: maHD,
+                tongTien: tongTien
+            }
+        )
+    }
+    return hdList
+    
 
-
+}
+async function getKH(id){
+    const col = doc(db, 'HanhKhach', id)
+    const docu = await getDoc(col)
+    return docu.data()
+}

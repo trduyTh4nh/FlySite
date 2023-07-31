@@ -9,6 +9,8 @@ import Admin from '../views/AdminView.vue'
 import CompleteTicket from '../views/CompleteTicketView.vue'
 import NotAllowed from '../views/NotAllowedView.vue'
 import component from 'vue-tailwind-datepicker'
+import DSCB from '../views/DSChuyenBayView.vue'
+import BCDT from '../views/BCDTView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -63,6 +65,16 @@ const router = createRouter({
       path: '/forbidden',
       name: 'Không có quyền',
       component: NotAllowed
+    },
+    {
+      path: '/admin/listcb',
+      name: 'DSCB',
+      component: DSCB
+    },
+    {
+      path: '/admin/doanhthu',
+      name: 'BCDT',
+      component: BCDT
     }
     
   ]

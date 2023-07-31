@@ -8,7 +8,8 @@
       ChuyenBay
     },
     props: [
-      "usr"
+      "usr",
+      "isLoggedIn"
     ],
     data(){
       return {
@@ -17,7 +18,19 @@
     },
     mounted(){
       getAllFlight().then(e => this.chuyenBay = e)
-    }
+    },
+    methods: {
+            startBooking(e){
+                if(this.isLoggedIn){
+                    var ticketString = JSON.stringify(e)
+                    console.log(ticketString)
+                    console.log(this.usr)
+                    this.$router.push('/ticket/'+ticketString)
+                } else {
+                    alert("Bạn chưa đăng nhập.")
+                }
+            }
+        }
   }
 </script>
 <template>
@@ -28,7 +41,7 @@
       <p style="color: white;">Xem tất cả các chuyến bay và vé tương ứng</p>
     </div>
     <div class="chuyenbay_wrapper">
-      <ChuyenBay :usr="usr" :Chuyenbay="cb" v-for="cb in chuyenBay"></ChuyenBay>
+      <ChuyenBay @book-event="e => {startBooking(e)}" :usr="usr" :Chuyenbay="cb" v-for="cb in chuyenBay"></ChuyenBay>
     </div>
   </div>
 </template>

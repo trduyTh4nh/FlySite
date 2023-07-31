@@ -12,7 +12,7 @@ import { firebaseApp } from './helper'
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faBabyCarriage, faLandmarkAlt, faPhone } from '@fortawesome/free-solid-svg-icons'
-import { faShield } from '@fortawesome/free-solid-svg-icons' 
+import { faShield, faDollarSign } from '@fortawesome/free-solid-svg-icons' 
 import { faShieldAlt } from '@fortawesome/free-solid-svg-icons'
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons'
 import { faPlaneArrival, faCrown } from '@fortawesome/free-solid-svg-icons'
@@ -42,6 +42,7 @@ library.add(faTicket)
 library.add(faUser)
 library.add(faMagnifyingGlass)
 library.add(faCrown)
+library.add(faDollarSign)
 const app = createApp(App)
 
 library.add(faShield)

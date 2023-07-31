@@ -70,7 +70,7 @@ export default {
                     <img src="https://cdn.discordapp.com/attachments/1072404748818456578/1130747259026411661/FlySite.png" />
                 </div>
 
-                <div class="header-container_component">
+                <div v-if="DynamicEmail != 'Admin69'" class="header-container_component">
                     <div class="header-container_component--schedule">
                         <RouterLink to='/'>Trang chủ</RouterLink>
                     </div>
