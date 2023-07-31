@@ -64,7 +64,7 @@
             </button>
         </div>
         <div class="vebay_wrapper" v-if="show">
-            <Ticket v-for="t in ticket" :ticket="t" :usr="usr"/>
+            <Ticket @book-event="e => {$emit('book-event', e)}" v-for="t in ticket" :ticket="t" :usr="usr"/>
         </div>
     </div>
 </template>
