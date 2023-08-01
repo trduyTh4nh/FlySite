@@ -1,29 +1,24 @@
 # FlySiteProject
 
-This template should help get you started developing with Vue 3 in Vite.
+Đồ án đặt vé máy bay
 
-## Recommended IDE Setup
+# Tiến độ
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Đã báo cáo - 8đ
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+# Lời cảm ơn
+Cảm ơn thầy Nguyễn Tấn Khoa vì đã hướng dẫn chúng em làm đồ án này \
+## Credits
+- Huỳnh Vũ Anh Tuấn: Thiết kế giao diện
+- Trần Duy Thanh: Chức năng tìm vé, xem lịch sử, đăng nhập, đăng xuất, đăng ký, thêm, sửa vé và chuyến bay
+- Tiêu Trí Quang: Phần còn lại (đặt vé, ràng buộc vé, Admin)
 ```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
+     =/\                 /\=
+     / \'._   (\_/)   _.'/ \
+    / .''._'--(o.o)--'_.''. \
+   /.' _/ |`'=/ " \='`| \_ `.\
+  /` .' `\;-,'\___/',-;/` '. '\
+ /.-'       `\(-V-)/`       `-.\
+ `            "   "            `
 ```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+Nhóm 4 - Peace out!
