@@ -194,7 +194,7 @@ export default {
                     <div class="ticket-input">
                         <select id="ticket-type" v-model="tickethangve" name="tickets">
                             <option value="Phổ thông">Phổ thông</option>
-                            <option value="Thương">Thương gia</option>
+                            <option value="Thương gia">Thương gia</option>
                         </select>
                     </div>
                 </div>

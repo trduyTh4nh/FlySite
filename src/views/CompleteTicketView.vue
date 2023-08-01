@@ -69,19 +69,19 @@ import {addHoaDon} from '../helper'
                         <div class="del_inf">
                             <div class="del_inf1">
                                 <p class="headed_info">Họ tên</p>
-                                <p class="main_info">cứng</p>
+                                <p class="main_info">{{ usr[0].TenKH }}</p>
                             </div>
                             <div class="del_inf1">
                                 <p class="headed_info">ID</p>
-                                <p class="main_info">cứng</p>
+                                <p class="main_info">{{ usr[0].CCCD }}</p>
                             </div>
                             <div class="del_inf1">
                                 <p class="headed_info">Địa chỉ</p>
-                                <p class="main_info">cứng</p>
+                                <p class="main_info">{{ usr[0].DiaChi }}</p>
                             </div>
                             <div class="del_inf1">
                                 <p class="headed_info">SĐT</p>
-                                <p class="main_info">cứng</p>
+                                <p class="main_info">{{ usr[0].SDT }}</p>
                             </div>
                             <div class="del_inf1">
                                 <p class="headed_info">Confirm ID</p>
